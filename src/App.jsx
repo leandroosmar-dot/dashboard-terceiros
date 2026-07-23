@@ -635,6 +635,76 @@ function ProntaRespostaView({PR}) {
   );
 }
 
+// ── LOGIN ────────────────────────────────────────────────────────────────────
+function LoginView({onLogin}) {
+  const [user, setUser] = useState('');
+  const [pass, setPass] = useState('');
+  const [erro, setErro] = useState('');
+  const [show, setShow] = useState(false);
+
+  const handleLogin = () => {
+    if (user.trim().toLowerCase() === 'portox' && pass === 'Portoex18') {
+      sessionStorage.setItem('dash_auth', '1');
+      onLogin();
+    } else {
+      setErro('Usuário ou senha incorretos.');
+      setTimeout(() => setErro(''), 3000);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center font-sans">
+      <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 w-full max-w-sm">
+        <div className="text-center mb-8">
+          <div className="text-4xl mb-3">📊</div>
+          <h1 className="text-xl font-bold text-gray-900">Dashboard TERCEIROS</h1>
+          <p className="text-gray-400 text-sm mt-1">Acesso restrito — PortoEx</p>
+        </div>
+        <div className="space-y-4">
+          <div>
+            <label className="text-xs font-medium text-gray-600 mb-1 block">Usuário</label>
+            <input
+              value={user}
+              onChange={e=>setUser(e.target.value)}
+              onKeyDown={e=>e.key==='Enter'&&handleLogin()}
+              placeholder="Digite o usuário"
+              className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-blue-400 focus:bg-white transition-all"
+            />
+          </div>
+          <div>
+            <label className="text-xs font-medium text-gray-600 mb-1 block">Senha</label>
+            <div className="relative">
+              <input
+                type={show?'text':'password'}
+                value={pass}
+                onChange={e=>setPass(e.target.value)}
+                onKeyDown={e=>e.key==='Enter'&&handleLogin()}
+                placeholder="Digite a senha"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-800 outline-none focus:border-blue-400 focus:bg-white transition-all pr-10"
+              />
+              <button onClick={()=>setShow(!show)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xs">
+                {show?'🙈':'👁'}
+              </button>
+            </div>
+          </div>
+          {erro && (
+            <div className="bg-red-50 border border-red-200 text-red-600 text-xs rounded-lg px-3 py-2 text-center">
+              {erro}
+            </div>
+          )}
+          <button
+            onClick={handleLogin}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg py-2.5 text-sm transition-all shadow-sm">
+            Entrar
+          </button>
+        </div>
+        <p className="text-center text-xs text-gray-300 mt-6">PortoEx Operacional · 2026</p>
+      </div>
+    </div>
+  );
+}
+
 const SECTIONS = [
   {id:'sm',         label:'SM Matriz vs Filial', emoji:'📊'},
   {id:'ajudantes',  label:'Ajudantes PX',        emoji:'👷'},
@@ -646,10 +716,13 @@ const SECTIONS = [
 ];
 
 export default function App() {
+  const [autenticado, setAutenticado] = useState(() => sessionStorage.getItem('dash_auth') === '1');
   const [tab, setTab] = useState('sm');
   const [dados, setDados] = useState(DADOS_INICIAIS);
   const [status, setStatus] = useState('carregando');
   const [ultimaAtt, setUltimaAtt] = useState('');
+
+  if (!autenticado) return <LoginView onLogin={()=>setAutenticado(true)}/>;
 
   const buscarDados = () => {
     setStatus('carregando');
