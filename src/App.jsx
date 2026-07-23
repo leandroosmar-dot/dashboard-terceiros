@@ -643,7 +643,7 @@ function LoginView({onLogin}) {
   const [show, setShow] = useState(false);
 
   const handleLogin = () => {
-    if (user.trim().toLowerCase() === 'portox' && pass === 'Portoex18') {
+    if (user.trim().toLowerCase() === 'portoex' && pass === 'Portoex18') {
       sessionStorage.setItem('dash_auth', '1');
       onLogin();
     } else {
