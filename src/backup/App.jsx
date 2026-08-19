@@ -641,7 +641,6 @@ function LoginView({onLogin}) {
   const [pass, setPass] = useState('');
   const [erro, setErro] = useState('');
   const [show, setShow] = useState(false);
-  const [lembrar, setLembrar] = useState(true);
 
   const handleLogin = () => {
     if (user.trim().toLowerCase() === 'portoex' && pass === 'Portoex18') {
@@ -694,13 +693,6 @@ function LoginView({onLogin}) {
               {erro}
             </div>
           )}
-          <div className="flex items-center gap-2 pt-1">
-            <input type="checkbox" id="lembrar" checked={lembrar} onChange={e=>setLembrar(e.target.checked)}
-              className="w-4 h-4 rounded border-gray-300 cursor-pointer"/>
-            <label htmlFor="lembrar" className="text-xs text-gray-500 cursor-pointer select-none">
-              Lembrar meu acesso neste dispositivo
-            </label>
-          </div>
           <button
             onClick={handleLogin}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg py-2.5 text-sm transition-all shadow-sm">
@@ -724,7 +716,7 @@ const SECTIONS = [
 ];
 
 export default function App() {
-  const [autenticado, setAutenticado] = useState(() => localStorage.getItem('dash_auth') === '1' || sessionStorage.getItem('dash_auth') === '1');
+  const [autenticado, setAutenticado] = useState(() => sessionStorage.getItem('dash_auth') === '1');
   const [tab, setTab] = useState('sm');
   const [dados, setDados] = useState(DADOS_INICIAIS);
   const [status, setStatus] = useState('carregando');
