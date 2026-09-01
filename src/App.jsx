@@ -641,11 +641,10 @@ function LoginView({onLogin}) {
   const [pass, setPass] = useState('');
   const [erro, setErro] = useState('');
   const [show, setShow] = useState(false);
-  const [lembrar, setLembrar] = useState(true);
 
   const handleLogin = () => {
     if (user.trim().toLowerCase() === 'portoex' && pass === 'Portoex18') {
-      sessionStorage.setItem('dash_auth', '1');
+      localStorage.setItem('dash_auth', '1');
       onLogin();
     } else {
       setErro('Usuário ou senha incorretos.');
@@ -694,13 +693,6 @@ function LoginView({onLogin}) {
               {erro}
             </div>
           )}
-          <div className="flex items-center gap-2 pt-1">
-            <input type="checkbox" id="lembrar" checked={lembrar} onChange={e=>setLembrar(e.target.checked)}
-              className="w-4 h-4 rounded border-gray-300 cursor-pointer"/>
-            <label htmlFor="lembrar" className="text-xs text-gray-500 cursor-pointer select-none">
-              Lembrar meu acesso neste dispositivo
-            </label>
-          </div>
           <button
             onClick={handleLogin}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg py-2.5 text-sm transition-all shadow-sm">
@@ -727,8 +719,8 @@ export default function App() {
   const [autenticado, setAutenticado] = useState(() => localStorage.getItem('dash_auth') === '1' || sessionStorage.getItem('dash_auth') === '1');
   const [tab, setTab] = useState('sm');
   const [dados, setDados] = useState(DADOS_INICIAIS);
-  const [status, setStatus] = useState('carregando');
-  const [ultimaAtt, setUltimaAtt] = useState('');
+  const [status, setStatus] = useState('offline');
+  const [ultimaAtt, setUltimaAtt] = useState('dados locais');
 
   if (!autenticado) return <LoginView onLogin={()=>setAutenticado(true)}/>;
 
@@ -758,7 +750,7 @@ export default function App() {
         PRONTA_RESPOSTA:         json.PRONTA_RESPOSTA         || DADOS_INICIAIS.PRONTA_RESPOSTA,
       });
       setStatus('online');
-      setUltimaAtt((json._meta && json._meta.hora) || new Date().toLocaleTimeString('pt-BR'));
+      setUltimaAtt((json._meta && json._meta.hora) ? 'API: ' + json._meta.hora : new Date().toLocaleTimeString('pt-BR'));
     };
     script.src = APPS_SCRIPT_URL + '?callback=' + cbName;
     script.onerror = () => { setStatus('erro'); clearTimeout(timer); };
@@ -766,9 +758,10 @@ export default function App() {
   };
 
   useEffect(() => {
-    buscarDados();
+    // Aguarda 1 segundo antes de buscar para não travar a renderização inicial
+    const init = setTimeout(() => buscarDados(), 1000);
     const interval = setInterval(buscarDados, INTERVALO);
-    return () => clearInterval(interval);
+    return () => { clearTimeout(init); clearInterval(interval); };
   }, []);
 
   const totalGasto = useMemo(()=>{
@@ -785,9 +778,10 @@ export default function App() {
 
   const badge = {
     online:     {cor:'bg-green-100 text-green-700 border-green-200',   txt:'● Online'},
-    carregando: {cor:'bg-yellow-100 text-yellow-700 border-yellow-200', txt:'⟳ Carregando…'},
-    erro:       {cor:'bg-red-100 text-red-600 border-red-200',         txt:'✕ Offline'},
-  }[status] || {cor:'bg-gray-100 text-gray-500 border-gray-200', txt:'—'};
+    carregando: {cor:'bg-yellow-100 text-yellow-700 border-yellow-200', txt:'⟳ Atualizando…'},
+    erro:       {cor:'bg-red-100 text-red-600 border-red-200',         txt:'✕ Sem conexão'},
+    offline:    {cor:'bg-gray-100 text-gray-500 border-gray-200',      txt:'◌ Dados locais'},
+  }[status] || {cor:'bg-gray-100 text-gray-500 border-gray-200', txt:'◌ Dados locais'};
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
