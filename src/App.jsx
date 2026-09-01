@@ -652,6 +652,8 @@ function LoginView({onLogin}) {
     }
   };
 
+  if (!autenticado) return <LoginView onLogin={()=>setAutenticado(true)}/>;
+
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center font-sans">
       <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 w-full max-w-sm">
@@ -716,28 +718,53 @@ const SECTIONS = [
 ];
 
 export default function App() {
-  const [autenticado, setAutenticado] = useState(() => localStorage.getItem('dash_auth') === '1' || sessionStorage.getItem('dash_auth') === '1');
+  // ── TODOS OS HOOKS PRIMEIRO ───────────────────────────────────────────────
+  const [autenticado, setAutenticado] = useState(() =>
+    localStorage.getItem('dash_auth') === '1' || sessionStorage.getItem('dash_auth') === '1'
+  );
   const [tab, setTab] = useState('sm');
   const [dados, setDados] = useState(DADOS_INICIAIS);
   const [status, setStatus] = useState('offline');
-  const [ultimaAtt, setUltimaAtt] = useState('dados locais');
+  const [ultimaAtt, setUltimaAtt] = useState('');
+  const [periodoFiltro, setPeriodoFiltro] = useState('tudo');
 
-  if (!autenticado) return <LoginView onLogin={()=>setAutenticado(true)}/>;
+  const periodos = useMemo(() => {
+    const anos = [...new Set([...dados.CANCELADOS, ...dados.REPROVADOS]
+      .map(r => { const d = parseDate(r.data); return d ? String(d.getFullYear()) : null; })
+      .filter(Boolean))].sort().reverse();
+    return ['tudo', ...anos];
+  }, [dados.CANCELADOS, dados.REPROVADOS]);
+
+  const filtrarPorPeriodo = (arr) => {
+    if (periodoFiltro === 'tudo') return arr;
+    return arr.filter(r => { const d = parseDate(r.data); return d && String(d.getFullYear()) === periodoFiltro; });
+  };
+
+  const cancFiltrado = useMemo(() => filtrarPorPeriodo(dados.CANCELADOS), [dados.CANCELADOS, periodoFiltro]);
+  const reprFiltrado = useMemo(() => filtrarPorPeriodo(dados.REPROVADOS), [dados.REPROVADOS, periodoFiltro]);
+
+  const totalGasto = useMemo(() => {
+    const c = cancFiltrado.reduce((s,r)=>s+(r.valor||0), 0);
+    const r = reprFiltrado.reduce((s,r)=>s+(r.valor||0), 0);
+    return c + r;
+  }, [cancFiltrado, reprFiltrado]);
+
+  const adjStats = useMemo(() => {
+    const s = {'Aprovado':0,'Reprovado':0};
+    dados.AJUDANTES_2026.forEach(a => { const st = adjStatus2026(a.situacao); if (s[st] !== undefined) s[st]++; });
+    return s;
+  }, [dados.AJUDANTES_2026]);
 
   const buscarDados = () => {
-    // Limpar callbacks antigos pendentes
     Object.keys(window).forEach(k => { if (k.startsWith('__cb_')) delete window[k]; });
-
     setStatus('carregando');
     const cbName = '__cb_' + Date.now();
     const script = document.createElement('script');
-
     const timer = setTimeout(() => {
       setStatus('offline');
       delete window[cbName];
       if (script.parentNode) script.parentNode.removeChild(script);
     }, 15000);
-
     window[cbName] = (json) => {
       clearTimeout(timer);
       delete window[cbName];
@@ -756,56 +783,24 @@ export default function App() {
         PRONTA_RESPOSTA:         json.PRONTA_RESPOSTA         || DADOS_INICIAIS.PRONTA_RESPOSTA,
       });
       setStatus('online');
-      const hora = json._meta && json._meta.hora ? json._meta.hora : new Date().toLocaleTimeString('pt-BR');
-      setUltimaAtt(hora);
+      setUltimaAtt(json._meta && json._meta.hora ? json._meta.hora : new Date().toLocaleTimeString('pt-BR'));
     };
-
-    script.onerror = () => {
-      clearTimeout(timer);
-      delete window[cbName];
-      setStatus('offline');
-    };
-
+    script.onerror = () => { clearTimeout(timer); delete window[cbName]; setStatus('offline'); };
     script.src = APPS_SCRIPT_URL + '?callback=' + cbName + '&t=' + Date.now();
     document.head.appendChild(script);
   };
 
   useEffect(() => {
-    // Renderiza primeiro, depois busca dados
+    if (!autenticado) return;
     const init = setTimeout(buscarDados, 500);
     const interval = setInterval(buscarDados, INTERVALO);
     return () => { clearTimeout(init); clearInterval(interval); };
-  }, []);
+  }, [autenticado]);
 
-  const totalGasto = useMemo(()=>{
-    const c = dados.CANCELADOS.reduce((s,r)=>s+(r.valor||0),0);
-    const r = dados.REPROVADOS.reduce((s,r)=>s+(r.valor||0),0);
-    return c + r;
-  },[dados.CANCELADOS, dados.REPROVADOS]);
+  // ── VERIFICAÇÃO DE AUTENTICAÇÃO (após todos os hooks) ─────────────────────
+  if (!autenticado) return <LoginView onLogin={() => setAutenticado(true)}/>;
 
-  const [periodoFiltro, setPeriodoFiltro] = useState('tudo');
-
-  const periodos = useMemo(() => {
-    const anos = [...new Set([
-      ...dados.CANCELADOS, ...dados.REPROVADOS
-    ].map(r => { const d = parseDate(r.data); return d ? String(d.getFullYear()) : null; }).filter(Boolean))].sort().reverse();
-    return ['tudo', ...anos];
-  }, [dados.CANCELADOS, dados.REPROVADOS]);
-
-  const filtrarPorPeriodo = (arr) => {
-    if (periodoFiltro === 'tudo') return arr;
-    return arr.filter(r => { const d = parseDate(r.data); return d && String(d.getFullYear()) === periodoFiltro; });
-  };
-
-  const cancFiltrado = useMemo(() => filtrarPorPeriodo(dados.CANCELADOS), [dados.CANCELADOS, periodoFiltro]);
-  const reprFiltrado = useMemo(() => filtrarPorPeriodo(dados.REPROVADOS), [dados.REPROVADOS, periodoFiltro]);
-
-  const adjStats = useMemo(()=>{
-    const s={'Aprovado':0,'Reprovado':0};
-    dados.AJUDANTES_2026.forEach(a=>{const st=adjStatus2026(a.situacao); if(s[st]!==undefined) s[st]++;});
-    return s;
-  },[dados.AJUDANTES_2026]);
-
+  // ── BADGE DE STATUS ───────────────────────────────────────────────────────
   const badge = {
     online:     {cor:'bg-green-100 text-green-700 border-green-200',   txt:'● Online'},
     carregando: {cor:'bg-yellow-100 text-yellow-700 border-yellow-200', txt:'⟳ Atualizando…'},
@@ -828,6 +823,7 @@ export default function App() {
         </div>
       </div>
       <div className="max-w-6xl mx-auto p-4">
+
         {/* Seletor de período */}
         <div className="flex items-center gap-2 mb-4 flex-wrap">
           <span className="text-xs text-gray-500 font-medium">Período do resumo:</span>
@@ -845,8 +841,9 @@ export default function App() {
           <KPI label="Ajudantes Aprovados" value={adjStats['Aprovado']} color="text-green-600" bg="bg-green-50" border="border-green-100" sub={`de ${dados.AJUDANTES_2026.length} cadastrados`}/>
           <KPI label="Lista Negra" value={dados.LISTA_NEGRA.length} color="text-red-600" bg="bg-red-50" border="border-red-100" sub="motoristas bloqueados"/>
           <KPI label={`Total Gasto${periodoFiltro!=='tudo'?' ('+periodoFiltro+')':''}`} value={BRL(totalGasto)} color="text-red-700" bg="bg-red-50" border="border-red-100" sub={`${cancFiltrado.length} canc + ${reprFiltrado.length} repr`}/>
-          <KPI label={`3º Cancelados${periodoFiltro!=='tudo'?' ('+periodoFiltro+')':''}`} value={cancFiltrado.length} color="text-amber-600" bg="bg-amber-50" border="border-amber-100" sub={`+ ${reprFiltrado.length} reprovados`}/>
+          <KPI label={`Cancelados${periodoFiltro!=='tudo'?' ('+periodoFiltro+')':''}`} value={cancFiltrado.length} color="text-amber-600" bg="bg-amber-50" border="border-amber-100" sub={`+ ${reprFiltrado.length} reprovados`}/>
         </div>
+
         <div className="flex flex-wrap gap-1.5 mb-5 bg-white p-2 rounded-xl border border-gray-200 shadow-sm">
           {SECTIONS.map(s=>(
             <button key={s.id} onClick={()=>setTab(s.id)}
@@ -855,6 +852,7 @@ export default function App() {
             </button>
           ))}
         </div>
+
         <div>
           {tab==='sm'         && <SMView SM_DIA={dados.SM_MATRIZ} SM_FILIAL={dados.SM_FILIAL}/>}
           {tab==='ajudantes'  && <AjudantesView AJUDANTES_2026={dados.AJUDANTES_2026} ENVIADOS_ANDRE={dados.ENVIADOS_ANDRE} LIBERACAO_DIA={dados.LIBERACAO_DIA_AJUDANTES}/>}
@@ -864,6 +862,7 @@ export default function App() {
           {tab==='rdo'        && <RdoView RDO={dados.RDO}/>}
           {tab==='pronta'     && <ProntaRespostaView PR={dados.PRONTA_RESPOSTA}/>}
         </div>
+
         <p className="text-xs text-gray-300 mt-6 text-center">TERCEIROS · SM Matriz · SM Filial · Ajudantes PX 2026 · Lista Negra · 3º Cancelado · 3º Reprovado · 3º RDO · Pronta Resposta</p>
       </div>
     </div>
