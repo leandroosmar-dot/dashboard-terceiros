@@ -783,6 +783,29 @@ export default function App() {
     return c + r;
   },[dados.CANCELADOS, dados.REPROVADOS]);
 
+  const [periodoFiltro, setPeriodoFiltro] = useState('tudo');
+
+  const periodos = useMemo(() => {
+    const anos = [...new Set([
+      ...dados.CANCELADOS, ...dados.REPROVADOS
+    ].map(r => { const d = parseDate(r.data); return d ? String(d.getFullYear()) : null; }).filter(Boolean))].sort().reverse();
+    return ['tudo', ...anos];
+  }, [dados.CANCELADOS, dados.REPROVADOS]);
+
+  const filtrarPorPeriodo = (arr) => {
+    if (periodoFiltro === 'tudo') return arr;
+    return arr.filter(r => { const d = parseDate(r.data); return d && String(d.getFullYear()) === periodoFiltro; });
+  };
+
+  const cancFiltrado = useMemo(() => filtrarPorPeriodo(dados.CANCELADOS), [dados.CANCELADOS, periodoFiltro]);
+  const reprFiltrado = useMemo(() => filtrarPorPeriodo(dados.REPROVADOS), [dados.REPROVADOS, periodoFiltro]);
+
+  const totalGasto = useMemo(() => {
+    const c = cancFiltrado.reduce((s,r)=>s+(r.valor||0),0);
+    const r = reprFiltrado.reduce((s,r)=>s+(r.valor||0),0);
+    return c + r;
+  }, [cancFiltrado, reprFiltrado]);
+
   const adjStats = useMemo(()=>{
     const s={'Aprovado':0,'Reprovado':0};
     dados.AJUDANTES_2026.forEach(a=>{const st=adjStatus2026(a.situacao); if(s[st]!==undefined) s[st]++;});
@@ -811,11 +834,24 @@ export default function App() {
         </div>
       </div>
       <div className="max-w-6xl mx-auto p-4">
+        {/* Seletor de período */}
+        <div className="flex items-center gap-2 mb-4 flex-wrap">
+          <span className="text-xs text-gray-500 font-medium">Período do resumo:</span>
+          <div className="flex gap-1.5 flex-wrap">
+            {periodos.map(p=>(
+              <button key={p} onClick={()=>setPeriodoFiltro(p)}
+                className={`px-3 py-1 rounded-lg text-xs font-medium border transition-all ${periodoFiltro===p?'bg-blue-600 text-white border-blue-600':'bg-white text-gray-600 border-gray-200 hover:border-blue-300'}`}>
+                {p==='tudo'?'Todos os anos':p}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
           <KPI label="Ajudantes Aprovados" value={adjStats['Aprovado']} color="text-green-600" bg="bg-green-50" border="border-green-100" sub={`de ${dados.AJUDANTES_2026.length} cadastrados`}/>
           <KPI label="Lista Negra" value={dados.LISTA_NEGRA.length} color="text-red-600" bg="bg-red-50" border="border-red-100" sub="motoristas bloqueados"/>
-          <KPI label="Total Gasto (Canc+Repr)" value={BRL(totalGasto)} color="text-red-700" bg="bg-red-50" border="border-red-100" sub="cancelados + reprovados"/>
-          <KPI label="3º Cancelados" value={dados.CANCELADOS.length} color="text-amber-600" bg="bg-amber-50" border="border-amber-100" sub={`+ ${dados.REPROVADOS.length} reprovados`}/>
+          <KPI label={`Total Gasto${periodoFiltro!=='tudo'?' ('+periodoFiltro+')':''}`} value={BRL(totalGasto)} color="text-red-700" bg="bg-red-50" border="border-red-100" sub={`${cancFiltrado.length} canc + ${reprFiltrado.length} repr`}/>
+          <KPI label={`3º Cancelados${periodoFiltro!=='tudo'?' ('+periodoFiltro+')':''}`} value={cancFiltrado.length} color="text-amber-600" bg="bg-amber-50" border="border-amber-100" sub={`+ ${reprFiltrado.length} reprovados`}/>
         </div>
         <div className="flex flex-wrap gap-1.5 mb-5 bg-white p-2 rounded-xl border border-gray-200 shadow-sm">
           {SECTIONS.map(s=>(
