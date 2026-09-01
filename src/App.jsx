@@ -800,12 +800,6 @@ export default function App() {
   const cancFiltrado = useMemo(() => filtrarPorPeriodo(dados.CANCELADOS), [dados.CANCELADOS, periodoFiltro]);
   const reprFiltrado = useMemo(() => filtrarPorPeriodo(dados.REPROVADOS), [dados.REPROVADOS, periodoFiltro]);
 
-  const totalGasto = useMemo(() => {
-    const c = cancFiltrado.reduce((s,r)=>s+(r.valor||0),0);
-    const r = reprFiltrado.reduce((s,r)=>s+(r.valor||0),0);
-    return c + r;
-  }, [cancFiltrado, reprFiltrado]);
-
   const adjStats = useMemo(()=>{
     const s={'Aprovado':0,'Reprovado':0};
     dados.AJUDANTES_2026.forEach(a=>{const st=adjStatus2026(a.situacao); if(s[st]!==undefined) s[st]++;});
