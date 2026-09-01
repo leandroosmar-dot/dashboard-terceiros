@@ -725,18 +725,24 @@ export default function App() {
   if (!autenticado) return <LoginView onLogin={()=>setAutenticado(true)}/>;
 
   const buscarDados = () => {
+    // Limpar callbacks antigos pendentes
+    Object.keys(window).forEach(k => { if (k.startsWith('__cb_')) delete window[k]; });
+
     setStatus('carregando');
     const cbName = '__cb_' + Date.now();
     const script = document.createElement('script');
+
     const timer = setTimeout(() => {
-      setStatus('erro');
+      setStatus('offline');
       delete window[cbName];
-      try { document.body.removeChild(script); } catch(e) {}
-    }, 20000);
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }, 15000);
+
     window[cbName] = (json) => {
       clearTimeout(timer);
       delete window[cbName];
-      try { document.body.removeChild(script); } catch(e) {}
+      if (script.parentNode) script.parentNode.removeChild(script);
+      if (!json) { setStatus('offline'); return; }
       setDados({
         SM_MATRIZ:               json.SM_MATRIZ               || DADOS_INICIAIS.SM_MATRIZ,
         SM_FILIAL:               json.SM_FILIAL               || DADOS_INICIAIS.SM_FILIAL,
@@ -750,16 +756,23 @@ export default function App() {
         PRONTA_RESPOSTA:         json.PRONTA_RESPOSTA         || DADOS_INICIAIS.PRONTA_RESPOSTA,
       });
       setStatus('online');
-      setUltimaAtt((json._meta && json._meta.hora) ? 'API: ' + json._meta.hora : new Date().toLocaleTimeString('pt-BR'));
+      const hora = json._meta && json._meta.hora ? json._meta.hora : new Date().toLocaleTimeString('pt-BR');
+      setUltimaAtt(hora);
     };
-    script.src = APPS_SCRIPT_URL + '?callback=' + cbName;
-    script.onerror = () => { setStatus('erro'); clearTimeout(timer); };
-    document.body.appendChild(script);
+
+    script.onerror = () => {
+      clearTimeout(timer);
+      delete window[cbName];
+      setStatus('offline');
+    };
+
+    script.src = APPS_SCRIPT_URL + '?callback=' + cbName + '&t=' + Date.now();
+    document.head.appendChild(script);
   };
 
   useEffect(() => {
-    // Aguarda 1 segundo antes de buscar para não travar a renderização inicial
-    const init = setTimeout(() => buscarDados(), 1000);
+    // Renderiza primeiro, depois busca dados
+    const init = setTimeout(buscarDados, 500);
     const interval = setInterval(buscarDados, INTERVALO);
     return () => { clearTimeout(init); clearInterval(interval); };
   }, []);
