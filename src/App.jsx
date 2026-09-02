@@ -394,20 +394,75 @@ function ListaNegraView({LISTA_NEGRA}) {
 function TimelineView({data, barColor, motivoKey='motivo', titulo='Registros'}) {
   const [q, setQ] = useState('');
   const [viewMode, setViewMode] = useState('qtd');
-  const byMonth = countByMonth(data);
-  const byMonthValor = valorByMonth(data);
-  const byYearValor = valorByYear(data);
-  const motivos = topN(data, motivoKey);
-  const filtered = q ? data.filter(r=>Object.values(r).join(' ').toLowerCase().includes(q.toLowerCase())) : data;
-  const totalValor = data.reduce((s,r)=>s+(r.valor||0),0);
-  const totalChecklist = data.reduce((s,r)=>s+(r.checklist||0),0);
+  const [filtroAno, setFiltroAno] = useState('tudo');
+  const [filtroMes, setFiltroMes] = useState('tudo');
+
+  const anos = useMemo(() => {
+    const s = [...new Set(data.map(r => { const d = parseDate(r.data); return d ? String(d.getFullYear()) : null; }).filter(Boolean))].sort().reverse();
+    return ['tudo', ...s];
+  }, [data]);
+
+  const meses = useMemo(() => {
+    const mn = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+    const s = [...new Set(data
+      .filter(r => filtroAno === 'tudo' || (parseDate(r.data) && String(parseDate(r.data).getFullYear()) === filtroAno))
+      .map(r => { const d = parseDate(r.data); return d ? String(d.getMonth()+1).padStart(2,'0') : null; })
+      .filter(Boolean))].sort();
+    return ['tudo', ...s.map(m => ({ val: m, label: mn[+m-1] }))];
+  }, [data, filtroAno]);
+
+  const dadosFiltrados = useMemo(() => {
+    return data.filter(r => {
+      const d = parseDate(r.data);
+      if (!d) return false;
+      if (filtroAno !== 'tudo' && String(d.getFullYear()) !== filtroAno) return false;
+      if (filtroMes !== 'tudo' && String(d.getMonth()+1).padStart(2,'0') !== filtroMes) return false;
+      return true;
+    });
+  }, [data, filtroAno, filtroMes]);
+
+  const byMonth = countByMonth(dadosFiltrados);
+  const byMonthValor = valorByMonth(dadosFiltrados);
+  const byYearValor = valorByYear(dadosFiltrados);
+  const motivos = topN(dadosFiltrados, motivoKey);
+  const filtered = q ? dadosFiltrados.filter(r=>Object.values(r).join(' ').toLowerCase().includes(q.toLowerCase())) : dadosFiltrados;
+  const totalValor = dadosFiltrados.reduce((s,r)=>s+(r.valor||0),0);
+  const totalChecklist = dadosFiltrados.reduce((s,r)=>s+(r.checklist||0),0);
   return (
     <div>
+      {/* Filtro de Ano e Mês */}
+      <div className="flex flex-wrap gap-3 mb-4 p-3 bg-gray-50 rounded-xl border border-gray-200">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="text-xs text-gray-500 font-medium">Ano:</span>
+          {anos.map(a=>(
+            <button key={a} onClick={()=>{ setFiltroAno(a); setFiltroMes('tudo'); }}
+              className={`px-2.5 py-1 rounded-lg text-xs font-medium border transition-all ${filtroAno===a?'bg-blue-600 text-white border-blue-600':'bg-white text-gray-600 border-gray-200 hover:border-blue-300'}`}>
+              {a==='tudo'?'Todos':a}
+            </button>
+          ))}
+        </div>
+        {filtroAno !== 'tudo' && (
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="text-xs text-gray-500 font-medium">Mês:</span>
+            {meses.map(m=>{
+              const val = typeof m === 'object' ? m.val : m;
+              const label = typeof m === 'object' ? m.label : 'Todos';
+              return (
+                <button key={val} onClick={()=>setFiltroMes(val)}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-medium border transition-all ${filtroMes===val?'bg-amber-500 text-white border-amber-500':'bg-white text-gray-600 border-gray-200 hover:border-amber-300'}`}>
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-        <KPI label="Total registros" value={data.length} color="text-blue-600" bg="bg-blue-50" border="border-blue-100"/>
+        <KPI label="Total registros" value={dadosFiltrados.length} color="text-blue-600" bg="bg-blue-50" border="border-blue-100" sub={`de ${data.length} total`}/>
         <KPI label="Total gasto" value={BRL(totalValor)} color="text-red-600" bg="bg-red-50" border="border-red-100" sub="soma dos valores"/>
         <KPI label="Total checklist" value={BRL(totalChecklist)} color="text-amber-600" bg="bg-amber-50" border="border-amber-100"/>
-        <KPI label="Último" value={data[data.length-1]?.data||'—'} color="text-gray-600" bg="bg-gray-50" border="border-gray-100"/>
+        <KPI label="Último" value={dadosFiltrados[dadosFiltrados.length-1]?.data||'—'} color="text-gray-600" bg="bg-gray-50" border="border-gray-100"/>
       </div>
 
       {/* Toggle qtd / valor */}
