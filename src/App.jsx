@@ -790,13 +790,15 @@ export default function App() {
     return ['tudo', ...anos];
   }, [dados.CANCELADOS, dados.REPROVADOS]);
 
-  const filtrarPorPeriodo = (arr) => {
-    if (periodoFiltro === 'tudo') return arr;
-    return arr.filter(r => { const d = parseDate(r.data); return d && String(d.getFullYear()) === periodoFiltro; });
-  };
+  const cancFiltrado = useMemo(() => {
+    if (periodoFiltro === 'tudo') return dados.CANCELADOS;
+    return dados.CANCELADOS.filter(r => { const d = parseDate(r.data); return d && String(d.getFullYear()) === periodoFiltro; });
+  }, [dados.CANCELADOS, periodoFiltro]);
 
-  const cancFiltrado = useMemo(() => filtrarPorPeriodo(dados.CANCELADOS), [dados.CANCELADOS, periodoFiltro]);
-  const reprFiltrado = useMemo(() => filtrarPorPeriodo(dados.REPROVADOS), [dados.REPROVADOS, periodoFiltro]);
+  const reprFiltrado = useMemo(() => {
+    if (periodoFiltro === 'tudo') return dados.REPROVADOS;
+    return dados.REPROVADOS.filter(r => { const d = parseDate(r.data); return d && String(d.getFullYear()) === periodoFiltro; });
+  }, [dados.REPROVADOS, periodoFiltro]);
 
   const totalGasto = useMemo(() => {
     const c = cancFiltrado.reduce((s,r)=>s+(r.valor||0), 0);
