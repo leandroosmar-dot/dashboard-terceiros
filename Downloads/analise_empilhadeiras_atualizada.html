@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise Comparativa — Empilhadeiras 2,5T GLP</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #181b24;
+    --surface2: #1e2230;
+    --border: #2a2f40;
+    --accent: #f0b429;
+    --accent2: #3ecf8e;
+    --accent3: #ff6b6b;
+    --accent4: #7b9cff;
+    --text: #e8eaf0;
+    --muted: #6b7280;
+    --winner: #3ecf8e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 60px 0;
+  }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #0f1117 0%, #1a1f30 60%, #1e2a1a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(240,180,41,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero p {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-badge {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .hero-badge strong { color: var(--text); }
+
+  /* MAIN */
+  .main { max-width: 1200px; margin: 0 auto; padding: 40px 24px 0; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 44px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* CARDS GRID */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    position: relative;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .card:hover { transform: translateY(-2px); }
+  .card.winner { border-color: var(--winner); background: linear-gradient(135deg, #181b24 0%, #1a2820 100%); }
+  .card.runner { border-color: var(--accent4); background: linear-gradient(135deg, #181b24 0%, #191e2e 100%); }
+
+  .winner-ribbon {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--winner);
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .runner-ribbon {
+    position: absolute;
+    top: 14px; right: 14px;
+    background: var(--accent4);
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .card-vendor {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .card-model {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .price-block { margin: 16px 0; }
+  .price-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .price-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .price-value.prazo {
+    font-size: 18px;
+    color: var(--text);
+    opacity: 0.7;
+  }
+  .price-diff {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .price-diff.cheaper { background: rgba(62,207,142,0.15); color: var(--winner); }
+  .price-diff.expensive { background: rgba(255,107,107,0.12); color: var(--accent3); }
+
+  .divider { height: 1px; background: var(--border); margin: 16px 0; }
+
+  .spec-list { display: flex; flex-direction: column; gap: 8px; }
+  .spec-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+  .spec-key { color: var(--muted); }
+  .spec-val { font-weight: 500; text-align: right; }
+  .spec-val.good { color: var(--winner); }
+  .spec-val.warn { color: var(--accent); }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .tag.green { border-color: rgba(62,207,142,0.4); color: var(--winner); background: rgba(62,207,142,0.06); }
+  .tag.yellow { border-color: rgba(240,180,41,0.4); color: var(--accent); background: rgba(240,180,41,0.06); }
+  .tag.red { border-color: rgba(255,107,107,0.4); color: var(--accent3); background: rgba(255,107,107,0.06); }
+  .tag.blue { border-color: rgba(123,156,255,0.4); color: var(--accent4); background: rgba(123,156,255,0.06); }
+
+  /* COMPARISON TABLE */
+  .table-wrap { overflow-x: auto; margin-top: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: var(--surface2); }
+  th {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th:first-child { border-radius: 10px 0 0 0; }
+  th:last-child { border-radius: 0 10px 0 0; }
+  td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  td.best { color: var(--winner); font-weight: 600; }
+  td.worst { color: var(--accent3); }
+  td.mid { color: var(--accent); }
+  .table-wrap table { background: var(--surface); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
+
+  /* VERDICT */
+  .verdict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .verdict-grid { grid-template-columns: 1fr; } }
+
+  .verdict-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .verdict-card.highlight { border-color: var(--winner); background: linear-gradient(135deg, #181b24, #1a2820); }
+  .verdict-card.highlight2 { border-color: var(--accent4); background: linear-gradient(135deg, #181b24, #191e2e); }
+
+  .verdict-head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  }
+  .verdict-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .verdict-icon.green { background: rgba(62,207,142,0.15); }
+  .verdict-icon.blue { background: rgba(123,156,255,0.15); }
+  .verdict-icon.yellow { background: rgba(240,180,41,0.15); }
+  .verdict-icon.red { background: rgba(255,107,107,0.15); }
+
+  .verdict-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .verdict-subtitle { font-size: 11px; color: var(--muted); }
+
+  .verdict-body { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  .verdict-body strong { color: var(--text); }
+
+  /* SCORE BARS */
+  .score-section { margin-top: 16px; }
+  .score-row { margin-bottom: 12px; }
+  .score-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 5px; }
+  .score-label span:first-child { color: var(--muted); }
+  .score-label span:last-child { font-weight: 600; }
+  .score-bar { height: 6px; background: var(--border); border-radius: 10px; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
+
+  /* ALERT BOX */
+  .alert {
+    background: rgba(240,180,41,0.07);
+    border: 1px solid rgba(240,180,41,0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-top: 16px;
+  }
+  .alert strong { color: var(--accent); }
+
+  .alert-info {
+    background: rgba(123,156,255,0.07);
+    border: 1px solid rgba(123,156,255,0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-top: 16px;
+  }
+  .alert-info strong { color: var(--accent4); }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 60px;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Análise Comparativa · Mai–Jun 2026</div>
+  <h1>Empilhadeiras <span>Portoex SP</span><br>Comparativo Completo de Propostas</h1>
+  <p>Análise consolidada de todos os fornecedores · GLP novo, usados Toyota e EP elétrica · Pagamento à vista e a prazo</p>
+  <div class="hero-meta">
+    <div class="hero-badge"><strong>8</strong> propostas analisadas</div>
+    <div class="hero-badge">Torre <strong>Triplex 4,7–4,8m</strong></div>
+    <div class="hero-badge">Carga <strong>1.800–2.500 kg</strong></div>
+    <div class="hero-badge">Atualizado: <strong>Jun/2026</strong></div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- CARDS -->
+  <div class="section-title">Visão Geral das Propostas</div>
+  <div class="cards">
+
+    <!-- LIFTCOM -->
+    <div class="card winner">
+      <div class="winner-ribbon">🏆 Melhor à Vista</div>
+      <div class="card-vendor">Liftcom / Plasnox</div>
+      <div class="card-model">CPQD25-Rc1K2<br><span style="font-size:13px;color:var(--muted);font-weight:400">Triplex 4,7m · GLP</span></div>
+      <div class="price-block">
+        <div class="price-label">À vista</div>
+        <div class="price-value">R$ 120.000</div>
+        <div class="price-diff cheaper">✓ Menor preço</div>
+      </div>
+      <div class="price-block">
+        <div class="price-label">A prazo</div>
+        <div class="price-value prazo">R$ 127.300 (5x boleto)</div>
+      </div>
+      <div class="divider"></div>
+      <div class="spec-list">
+        <div class="spec-row"><span class="spec-key">Fornecedor</span><span class="spec-val">Liftcom Equipamentos (SP)</span></div>
+        <div class="spec-row"><span class="spec-key">Elevação máx.</span><span class="spec-val">4.700 mm</span></div>
+        <div class="spec-row"><span class="spec-key">Frete</span><span class="spec-val good">Incluso (entregue)</span></div>
+        <div class="spec-row"><span class="spec-key">ICMS</span><span class="spec-val">4% incluso</span></div>
+        <div class="spec-row"><span class="spec-key">Garantia</span><span class="spec-val">6 meses / 1.000h</span></div>
+        <div class="spec-row"><span class="spec-key">Validade</span><span class="spec-val warn">5 dias</span></div>
+        <div class="spec-row"><span class="spec-key">Entrega</span><span class="spec-val good">Imediata (estoque SC)</span></div>
+      </div>
+      <div class="tag-list">
+        <span class="tag green">Menor preço</span>
+        <span class="tag green">Frete incluso</span>
+        <span class="tag green">Estoque imediato</span>
+        <span class="tag yellow">Validade curta</span>
+      </div>
+    </div>
+
+    <!-- PLASNOX DIRETO (Thais) -->
+    <div class="card">
+      <div class="card-vendor">Plasnox Direto</div>
+      <div class="card-model">CPQYD25-470<br><span style="font-size:13px;color:var(--muted);font-weight:400">Triplex 4,7m · GLP</span></div>
+      <div class="price-block">
+        <div class="price-label">Preço único (à vista indicado)</div>
+        <div class="price-value">R$ 127.300</div>
+        <div class="price-diff expensive">+R$ 7.300 vs Liftcom</div>
+      </div>
+      <div class="price-block">
+        <div class="price-label">A prazo</div>
+        <div class="price-value prazo">Consultar</div>
+      </div>
+      <div class="divider"></div>
+      <div class="spec-list">
+        <div class="spec-row"><span class="spec-key">Fornecedor</span><span class="spec-val">Plasnox Gaspar/SC (direto)</span></div>
+        <div class="spec-row"><span class="spec-key">Elevação máx.</span><span class="spec-val">4.700 mm</span></div>
+        <div class="spec-row"><span class="spec-key">Frete</span><span class="spec-val good">CIF (incluso)</span></div>
+        <div class="spec-row"><span class="spec-key">ICMS</span><span class="spec-val">17% (verificar)</span></div>
+        <div class="spec-row"><span class="spec-key">Garantia</span><span class="spec-val">6 meses / 1.000h</span></div>
+        <div class="spec-row"><span class="spec-key">Validade</span><span class="spec-val warn">3 dias</span></div>
+        <div class="spec-row"><span class="spec-key">Entrega</span><span class="spec-val">A consultar</span></div>
+      </div>
+      <div class="tag-list">
+        <span class="tag green">Frete CIF</span>
+        <span class="tag yellow">Importador direto</span>
+        <span class="tag red">ICMS 17% a verificar</span>
+        <span class="tag red">Validade 3 dias</span>
+      </div>
+    </div>
+
+    <!-- MAQCEN (Portoex) -->
+    <div class="card runner">
+      <div class="runner-ribbon">2° A Vista</div>
+      <div class="card-vendor">EP Maqcen</div>
+      <div class="card-model">CPQD25 T8<br><span style="font-size:13px;color:var(--muted);font-weight:400">Triplex 4,8m · GLP</span></div>
+      <div class="price-block">
+        <div class="price-label">À vista</div>
+        <div class="price-value">R$ 128.000</div>
+        <div class="price-diff expensive">+R$ 8.000 vs Liftcom</div>
+      </div>
+      <div class="price-block">
+        <div class="price-label">A prazo</div>
+        <div class="price-value prazo">Não informado</div>
+      </div>
+      <div class="divider"></div>
+      <div class="spec-list">
+        <div class="spec-row"><span class="spec-key">Fornecedor</span><span class="spec-val">Maqcen Itajaí/SC</span></div>
+        <div class="spec-row"><span class="spec-key">Elevação máx.</span><span class="spec-val good">4.800 mm ✓</span></div>
+        <div class="spec-row"><span class="spec-key">Frete</span><span class="spec-val warn">FOB (por conta do cliente)</span></div>
+        <div class="spec-row"><span class="spec-key">ICMS</span><span class="spec-val">4% incluso</span></div>
+        <div class="spec-row"><span class="spec-key">Garantia</span><span class="spec-val good">1 ano / 1.000h motor</span></div>
+        <div class="spec-row"><span class="spec-key">Validade</span><span class="spec-val">N/A</span></div>
+        <div class="spec-row"><span class="spec-key">Entrega</span><span class="spec-val good">Imediata (estoque)</span></div>
+      </div>
+      <div class="tag-list">
+        <span class="tag green">Maior elevação (4,8m)</span>
+        <span class="tag green">Garantia 1 ano motor</span>
+        <span class="tag green">Estoque imediato</span>
+        <span class="tag red">Frete por conta</span>
+      </div>
+    </div>
+
+    <!-- MICHELSON/PREVTEC -->
+    <div class="card">
+      <div class="card-vendor">Michelson / Heli</div>
+      <div class="card-model">CPQD25-RC1H/480<br><span style="font-size:13px;color:var(--muted);font-weight:400">Triplex 4,8m · GLP</span></div>
+      <div class="price-block">
+        <div class="price-label">À vista</div>
+        <div class="price-value">R$ 154.990</div>
+        <div class="price-diff expensive">+R$ 34.990 vs Liftcom</div>
+      </div>
+      <div class="price-block">
+        <div class="price-label">A prazo</div>
+        <div class="price-value prazo">Financiamento bancário</div>
+      </div>
+      <div class="divider"></div>
+      <div class="spec-list">
+        <div class="spec-row"><span class="spec-key">Fornecedor</span><span class="spec-val">Michelson Itajaí/SC</span></div>
+        <div class="spec-row"><span class="spec-key">Elevação máx.</span><span class="spec-val good">4.800 mm ✓</span></div>
+        <div class="spec-row"><span class="spec-key">Frete</span><span class="spec-val warn">Por conta do cliente</span></div>
+        <div class="spec-row"><span class="spec-key">ICMS</span><span class="spec-val">4%</span></div>
+        <div class="spec-row"><span class="spec-key">Garantia</span><span class="spec-val good">12 meses / 2.000h</span></div>
+        <div class="spec-row"><span class="spec-key">Validade</span><span class="spec-val">31/05/2026</span></div>
+        <div class="spec-row"><span class="spec-key">Entrega</span><span class="spec-val">15 dias</span></div>
+      </div>
+      <div class="tag-list">
+        <span class="tag green">Maior garantia</span>
+        <span class="tag green">Red Zone + Blue Spot</span>
+        <span class="tag green">Travel OPS</span>
+        <span class="tag red">Preço mais caro</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RBM SECTION -->
+  <div class="section-title">Novas Propostas — RBM Empilhadeiras (Jun/2026)</div>
+
+  <div style="background:rgba(240,180,41,0.06);border:1px solid rgba(240,180,41,0.2);border-radius:12px;padding:14px 20px;font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.7;">
+    <strong style="color:var(--accent)">📋 RBM Empilhadeiras (São Paulo/SP)</strong> — Fornecedor especializado em compra, venda, locação, manutenção e reforma. Enviou 4 propostas em 02/06/2026 para PORTOEX SP LOGISTICA LTDA, A/C Sr. Matheus. Mix de equipamentos novos (EP elétrica e diesel) e usados (Toyota). Todas com pagamento a combinar.
+  </div>
+
+  <div class="cards">
+
+    <!-- RBM 01 — EP Elétrica Lítio -->
+    <div class="card" style="border-color: rgba(123,156,255,0.4); background: linear-gradient(135deg,#181b24,#191e2e);">
+      <div style="position:absolute;top:14px;right:14px;background:var(--accent4);color:#000;font-family:'Syne',sans-serif;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px;">⚡ Elétrica Nova</div>
+      <div class="card-vendor">RBM — PLE 01</div>
+      <div class="card-model">EP Contrabalançada Lítio<br><span style="font-size:13px;color:var(--muted);font-weight:400">Triplex 4,8m · Bateria Lítio</span></div>
+      <div class="price-block">
+        <div class="price-label">Valor</div>
+        <div class="price-value">R$ 158.000</div>
+        <div class="price-diff expensive">Mais cara do grupo RBM</div>
+      </div>
+      <div class="divider"></div>
+      <div class="spec-list">
+        <div class="spec-row"><span class="spec-key">Capacidade</span><span class="spec-val good">2.500 kg</span></div>
+        <div class="spec-row"><span class="spec-key">Torre</span><span class="spec-val good">Tríplex 4,8 m</span></div>
+        <div class="spec-row"><span class="spec-key">Propulsão</span><span class="spec-val good">Elétrica (bateria lítio)</span></div>
+        <div class="spec-row"><span class="spec-key">Carregador</span><span class="spec-val">Interno 80V – 35Ah</span></div>
+        <div class="spec-row"><span class="spec-key">Estado</span><span class="spec-val good">Equipamento novo</span></div>
+        <div class="spec-row"><span class="spec-key">Pagamento</span><span class="spec-val warn">A combinar</span></div>
+      </div>
+      <div class="tag-list">
+        <span class="tag green">Zero emissão</span>
+        <span class="tag green">Bateria lítio</span>
+        <span class="tag green">2.500 kg</span>
+        <span class="tag green">Equipamento novo</span>
+        <span class="tag red">Maior preço</span>
+      </div>
+    </div>
+
+    <!-- RBM 02 — EP Diesel Nova -->
+    <div class="card winner" style="border-color:var(--winner);">
+      <div class="winner-ribbon">🏆 Melhor RBM</div>
+      <div class="card-vendor">RBM — PLE 02</div>
+      <div class="card-model">EP CPC-D 25 Diesel<br><span style="font-size:13px;color:var(--muted);font-weight:400">Triplex 4,8m · Diesel · Nova</span></div>
+      <div class="price-block">
+        <div class="price-label">Valor</div>
+        <div class="price-value">R$ 145.000</div>
+        <div class="price-diff cheaper">✓ Nova com menor preço do grupo RBM</div>
+      </div>
+      <div class="divider"></div>
+      <div class="spec-list">
+        <div class="spec-row"><span class="spec-key">Capacidade</span><span class="spec-val good">2.500 kg</span></div>
+        <div class="spec-row"><span class="spec-key">Torre</span><span class="spec-val good">Tríplex 4,8 m</span></div>
+        <div class="spec-row"><span class="spec-key">Propulsão</span><span class="spec-val">Diesel</span></div>
+        <div class="spec-row"><span class="spec-key">Estado</span><span class="spec-val good">Equipamento novo</span></div>
+        <div class="spec-row"><span class="spec-key">Pagamento</span><span class="spec-val warn">A combinar</span></div>
+      </div>
+      <div class="tag-list">
+        <span class="tag green">2.500 kg</span>
+        <span class="tag green">Equipamento novo</span>
+        <span class="tag green">Diesel (uso externo)</span>
+        <span class="tag yellow">Pagamento a negociar</span>
+      </div>
+    </div>
+
+    <!-- RBM 03 — Toyota 8FG18 2018 -->
+    <div class="card" style="border-color:rgba(240,180,41,0.3);">
+      <div style="position:absolute;top:14px;right:14px;background:var(--accent);color:#000;font-family:'Syne',sans-serif;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px;">🔧 Usado 2018</div>
+      <div class="card-vendor">RBM — PLE 03</div>
+      <div class="card-model">Toyota 8FG18<br><span style="font-size:13px;color:var(--muted);font-weight:400">Triplex 4,8m · GLP · 2018</span></div>
+      <div class="price-block">
+        <div class="price-label">Valor</div>
+        <div class="price-value">R$ 77.000</div>
+        <div class="price-diff cheaper">✓ Melhor custo-benefício usado</div>
+      </div>
+      <div class="divider"></div>
+      <div class="spec-list">
+        <div class="spec-row"><span class="spec-key">Capacidade</span><span class="spec-val warn">1.800 kg</span></div>
+        <div class="spec-row"><span class="spec-key">Torre</span><span class="spec-val good">Tríplex 4,8 m</span></div>
+        <div class="spec-row"><span class="spec-key">Ano</span><span class="spec-val good">2018 (mais novo)</span></div>
+        <div class="spec-row"><span class="spec-key">Transmissão</span><span class="spec-val good">Automática</span></div>
+        <div class="spec-row"><span class="spec-key">Pneus</span><span class="spec-val good">Novos (dianteiros e traseiros)</span></div>
+        <div class="spec-row"><span class="spec-key">Garantia</span><span class="spec-val">3 meses</span></div>
+      </div>
+      <div class="tag-list">
+        <span class="tag green">Toyota (confiável)</span>
+        <span class="tag green">Ano 2018</span>
+        <span class="tag green">Pneus novos</span>
+        <span class="tag yellow">1.800 kg apenas</span>
+        <span class="tag red">Menor capacidade</span>
+      </div>
+    </div>
+
+    <!-- RBM 04 — Toyota 8FG25 2013 -->
+    <div class="card">
+      <div class="card-vendor">RBM — PLE 04</div>
+      <div class="card-model">Toyota 8FG25<br><span style="font-size:13px;color:var(--muted);font-weight:400">Triplex 4,8m · GLP · 2013</span></div>
+      <div class="price-block">
+        <div class="price-label">Valor</div>
+        <div class="price-value">R$ 75.000</div>
+        <div class="price-diff cheaper">✓ Menor preço geral</div>
+      </div>
+      <div class="divider"></div>
+      <div class="spec-list">
+        <div class="spec-row"><span class="spec-key">Capacidade</span><span class="spec-val good">2.500 kg</span></div>
+        <div class="spec-row"><span class="spec-key">Torre</span><span class="spec-val good">Tríplex 4,8 m</span></div>
+        <div class="spec-row"><span class="spec-key">Ano</span><span class="spec-val warn">2013 (mais antigo)</span></div>
+        <div class="spec-row"><span class="spec-key">Transmissão</span><span class="spec-val good">Automática</span></div>
+        <div class="spec-row"><span class="spec-key">Pneus</span><span class="spec-val good">Novos (dianteiros e traseiros)</span></div>
+        <div class="spec-row"><span class="spec-key">Garantia</span><span class="spec-val">3 meses</span></div>
+      </div>
+      <div class="tag-list">
+        <span class="tag green">Toyota (confiável)</span>
+        <span class="tag green">2.500 kg</span>
+        <span class="tag green">Pneus novos</span>
+        <span class="tag yellow">Ano 2013</span>
+        <span class="tag red">Mais antigo</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TABELA RBM -->
+  <div class="section-title">Comparativo RBM — As 4 Propostas</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Critério</th>
+          <th>EP Elétrica Lítio (PLE-01)</th>
+          <th>EP Diesel Nova (PLE-02)</th>
+          <th>Toyota 8FG18 / 2018 (PLE-03)</th>
+          <th>Toyota 8FG25 / 2013 (PLE-04)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Valor</strong></td>
+          <td class="worst">R$ 158.000</td>
+          <td class="mid">R$ 145.000</td>
+          <td class="mid">R$ 77.000</td>
+          <td class="best">R$ 75.000 🏆</td>
+        </tr>
+        <tr>
+          <td><strong>Capacidade</strong></td>
+          <td class="best">2.500 kg ✓</td>
+          <td class="best">2.500 kg ✓</td>
+          <td class="worst">1.800 kg</td>
+          <td class="best">2.500 kg ✓</td>
+        </tr>
+        <tr>
+          <td><strong>Torre</strong></td>
+          <td class="best">Tríplex 4,8 m</td>
+          <td class="best">Tríplex 4,8 m</td>
+          <td class="best">Tríplex 4,8 m</td>
+          <td class="best">Tríplex 4,8 m</td>
+        </tr>
+        <tr>
+          <td><strong>Propulsão</strong></td>
+          <td class="best">Elétrica / Lítio</td>
+          <td>Diesel</td>
+          <td>GLP</td>
+          <td>GLP</td>
+        </tr>
+        <tr>
+          <td><strong>Estado</strong></td>
+          <td class="best">Novo</td>
+          <td class="best">Novo</td>
+          <td class="mid">Usado 2018</td>
+          <td class="worst">Usado 2013</td>
+        </tr>
+        <tr>
+          <td><strong>Garantia</strong></td>
+          <td>A combinar</td>
+          <td>A combinar</td>
+          <td>3 meses</td>
+          <td>3 meses</td>
+        </tr>
+        <tr>
+          <td><strong>Transmissão</strong></td>
+          <td>—</td>
+          <td>—</td>
+          <td class="best">Automática</td>
+          <td class="best">Automática</td>
+        </tr>
+        <tr>
+          <td><strong>Pneus</strong></td>
+          <td>—</td>
+          <td>—</td>
+          <td class="best">Novos (todos)</td>
+          <td class="best">Novos (todos)</td>
+        </tr>
+        <tr>
+          <td><strong>Carregador interno</strong></td>
+          <td class="best">80V – 35Ah</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><strong>Melhor para</strong></td>
+          <td class="best">Ambiente fechado</td>
+          <td>Área externa/semi-aberta</td>
+          <td class="mid">Carga leve (até 1,8T)</td>
+          <td class="mid">Carga 2,5T econômica</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ANÁLISE RBM vs DEMAIS -->
+  <div class="section-title">RBM vs Outros Fornecedores — Contexto Geral</div>
+
+  <div class="verdict-grid">
+
+    <div class="verdict-card">
+      <div class="verdict-head">
+        <div class="verdict-icon yellow">🔋</div>
+        <div>
+          <div class="verdict-title">RBM Elétrica Lítio (R$ 158.000)</div>
+          <div class="verdict-subtitle">vs Michelson/Heli GLP (R$ 154.990)</div>
+        </div>
+      </div>
+      <div class="verdict-body">
+        A EP elétrica com bateria de lítio da RBM custa <strong>R$ 3.010 a mais</strong> que a Michelson, mas oferece propulsão elétrica (zero emissão, silenciosa, adequada para ambientes fechados ou portuários cobertos). Custo operacional de energia elétrica é muito inferior ao GLP no longo prazo. <strong>Se o uso for em ambiente fechado ou semi-aberto, a elétrica pode ser mais econômica em 2–3 anos.</strong>
+      </div>
+    </div>
+
+    <div class="verdict-card highlight">
+      <div class="verdict-head">
+        <div class="verdict-icon green">💵</div>
+        <div>
+          <div class="verdict-title">Toyota 8FG25/2013 (R$ 75.000)</div>
+          <div class="verdict-subtitle">Menor preço com 2.500 kg de capacidade</div>
+        </div>
+      </div>
+      <div class="verdict-body">
+        Com <strong>R$ 75.000</strong>, é o equipamento mais barato em toda a análise. Toyota 8FG25 é um modelo consolidado e com ampla rede de peças. Pneus novos inclusos e transmissão automática são diferenciais. Porém, <strong>ano 2013 exige avaliação do histórico de uso</strong> (horas de trabalho) antes da compra. Garantia de apenas 3 meses. Para operação de alta intensidade, o risco de manutenção é maior.
+      </div>
+    </div>
+
+    <div class="verdict-card">
+      <div class="verdict-head">
+        <div class="verdict-icon blue">⚖️</div>
+        <div>
+          <div class="verdict-title">Toyota 8FG18/2018 (R$ 77.000)</div>
+          <div class="verdict-subtitle">Mais novo, mas capacidade menor (1.800 kg)</div>
+        </div>
+      </div>
+      <div class="verdict-body">
+        Ano 2018 traz menor desgaste esperado vs o modelo 2013. Porém, capacidade de <strong>apenas 1.800 kg</strong> é um limitador importante — se a operação exige 2.500 kg, este equipamento fica fora do escopo. Por apenas <strong>R$ 2.000 a mais</strong>, o 8FG25/2013 entrega 2.500 kg de capacidade. A escolha entre eles depende exclusivamente da carga operacional.
+      </div>
+    </div>
+
+    <div class="verdict-card highlight2">
+      <div class="verdict-head">
+        <div class="verdict-icon red">🏭</div>
+        <div>
+          <div class="verdict-title">RBM Diesel Nova (R$ 145.000)</div>
+          <div class="verdict-subtitle">vs EP Maqcen GLP Nova (R$ 128.000)</div>
+        </div>
+      </div>
+      <div class="verdict-body">
+        A EP diesel da RBM custa <strong>R$ 17.000 a mais</strong> que a Maqcen nova GLP. A diferença principal está no combustível: diesel tende a ter maior torque e autonomia para trabalho pesado externo, mas GLP já atende bem operações portuárias. <strong>Sem especificação de garantia e prazo de entrega informados pela RBM, a Maqcen leva vantagem clara nessa comparação direta.</strong>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TABELA COMPARATIVA -->
+  <div class="section-title">Comparativo Detalhado</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Critério</th>
+          <th>Liftcom / Plasnox</th>
+          <th>Plasnox Direto</th>
+          <th>EP Maqcen</th>
+          <th>Michelson / Heli</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Preço à vista</strong></td>
+          <td class="best">R$ 120.000 🏆</td>
+          <td class="mid">R$ 127.300</td>
+          <td class="mid">R$ 128.000</td>
+          <td class="worst">R$ 154.990</td>
+        </tr>
+        <tr>
+          <td><strong>Preço a prazo</strong></td>
+          <td class="best">R$ 127.300 (5x boleto) 🏆</td>
+          <td>Consultar</td>
+          <td>Não informado</td>
+          <td>Financ. bancário</td>
+        </tr>
+        <tr>
+          <td><strong>Elevação garfos</strong></td>
+          <td>4.700 mm</td>
+          <td>4.700 mm</td>
+          <td class="best">4.800 mm ✓</td>
+          <td class="best">4.800 mm ✓</td>
+        </tr>
+        <tr>
+          <td><strong>Motor</strong></td>
+          <td>Nissan K25</td>
+          <td>Nissan K25</td>
+          <td>Nissan K25</td>
+          <td>Nissan K25</td>
+        </tr>
+        <tr>
+          <td><strong>Torre</strong></td>
+          <td>Triplex 4,7m</td>
+          <td>Triplex 4,7m</td>
+          <td>Triplex 4,8m</td>
+          <td>Triplex 4,8m</td>
+        </tr>
+        <tr>
+          <td><strong>Frete</strong></td>
+          <td class="best">Incluso (entregue)</td>
+          <td class="best">CIF (incluso)</td>
+          <td class="worst">FOB (cliente paga)</td>
+          <td class="worst">Por conta do cliente</td>
+        </tr>
+        <tr>
+          <td><strong>Garantia</strong></td>
+          <td>6 meses / 1.000h</td>
+          <td>6 meses / 1.000h</td>
+          <td class="mid">1 ano motor / 6m elétrica</td>
+          <td class="best">12 meses / 2.000h 🏆</td>
+        </tr>
+        <tr>
+          <td><strong>Prazo de entrega</strong></td>
+          <td class="best">Imediato</td>
+          <td>A consultar</td>
+          <td class="best">Imediato</td>
+          <td>15 dias</td>
+        </tr>
+        <tr>
+          <td><strong>Deslocador lateral</strong></td>
+          <td class="best">✓</td>
+          <td class="best">✓</td>
+          <td>—</td>
+          <td class="best">✓ integrado</td>
+        </tr>
+        <tr>
+          <td><strong>ICMS incluso</strong></td>
+          <td class="best">4% incluso</td>
+          <td class="worst">17% (verificar!)</td>
+          <td class="best">4% incluso</td>
+          <td class="best">4% incluso</td>
+        </tr>
+        <tr>
+          <td><strong>Local fornecedor</strong></td>
+          <td>SP / estoque SC</td>
+          <td>Gaspar/SC</td>
+          <td class="best">Itajaí/SC</td>
+          <td class="best">Itajaí/SC</td>
+        </tr>
+        <tr>
+          <td><strong>Itens extras</strong></td>
+          <td>Grade, faróis, alarme, espelhos, caixa ferr.</td>
+          <td>Completo</td>
+          <td>Básico</td>
+          <td class="best">Red Zone, Blue Spot, Travel OPS, Giroflex</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SCORES POR CENÁRIO -->
+  <div class="section-title">Pontuação por Cenário</div>
+  <div class="verdict-grid">
+
+    <div class="verdict-card highlight">
+      <div class="verdict-head">
+        <div class="verdict-icon green">💰</div>
+        <div>
+          <div class="verdict-title">Melhor Custo — À Vista</div>
+          <div class="verdict-subtitle">Prioridade: menor desembolso imediato</div>
+        </div>
+      </div>
+      <div class="score-section">
+        <div class="score-row">
+          <div class="score-label"><span>Liftcom / Plasnox</span><span style="color:var(--winner)">95 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:95%;background:var(--winner)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>Plasnox Direto</span><span style="color:var(--accent)">72 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:72%;background:var(--accent)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>EP Maqcen</span><span style="color:var(--accent)">68 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:68%;background:var(--accent)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>Michelson / Heli</span><span style="color:var(--accent3)">40 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:40%;background:var(--accent3)"></div></div>
+        </div>
+      </div>
+      <div class="verdict-body" style="margin-top:14px">
+        <strong>Liftcom vence</strong> com R$ 120.000, frete incluso e entrega imediata. A Maqcen fica em 2° lugar com estoque local, mas frete por conta do comprador pode adicionar R$ 1.500–3.000 ao custo total.
+      </div>
+    </div>
+
+    <div class="verdict-card highlight2">
+      <div class="verdict-head">
+        <div class="verdict-icon blue">📅</div>
+        <div>
+          <div class="verdict-title">Melhor Custo — A Prazo</div>
+          <div class="verdict-subtitle">Prioridade: parcelar com menor custo total</div>
+        </div>
+      </div>
+      <div class="score-section">
+        <div class="score-row">
+          <div class="score-label"><span>Liftcom / Plasnox</span><span style="color:var(--winner)">90 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:90%;background:var(--winner)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>Plasnox Direto</span><span style="color:var(--accent)">60 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:60%;background:var(--accent)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>EP Maqcen</span><span style="color:var(--muted)">50 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:50%;background:var(--muted)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>Michelson / Heli</span><span style="color:var(--accent3)">38 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:38%;background:var(--accent3)"></div></div>
+        </div>
+      </div>
+      <div class="verdict-body" style="margin-top:14px">
+        <strong>Liftcom vence</strong> também no prazo: parcelamento em 5x no boleto sem intermediário bancário (R$ 127.300 total). Michelson exige financiamento bancário — sujeito a juros, aprovação e custo total bem maior.
+      </div>
+    </div>
+
+    <div class="verdict-card">
+      <div class="verdict-head">
+        <div class="verdict-icon yellow">🛡️</div>
+        <div>
+          <div class="verdict-title">Melhor Garantia & Pós-Venda</div>
+          <div class="verdict-subtitle">Prioridade: menor custo de manutenção</div>
+        </div>
+      </div>
+      <div class="score-section">
+        <div class="score-row">
+          <div class="score-label"><span>Michelson / Heli</span><span style="color:var(--winner)">95 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:95%;background:var(--winner)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>EP Maqcen</span><span style="color:var(--accent)">75 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:75%;background:var(--accent)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>Liftcom / Plasnox</span><span style="color:var(--accent4)">60 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:60%;background:var(--accent4)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>Plasnox Direto</span><span style="color:var(--accent4)">60 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:60%;background:var(--accent4)"></div></div>
+        </div>
+      </div>
+      <div class="verdict-body" style="margin-top:14px">
+        <strong>Michelson lidera</strong> com 12 meses/2.000h de garantia — dobro dos demais. Para uso intenso, essa diferença pode valer muito. A Maqcen oferece 1 ano no motor, que já é superior à garantia de 6 meses das outras.
+      </div>
+    </div>
+
+    <div class="verdict-card">
+      <div class="verdict-head">
+        <div class="verdict-icon red">📦</div>
+        <div>
+          <div class="verdict-title">Melhor Equipamento (Specs)</div>
+          <div class="verdict-subtitle">Prioridade: mais recursos técnicos</div>
+        </div>
+      </div>
+      <div class="score-section">
+        <div class="score-row">
+          <div class="score-label"><span>Michelson / Heli</span><span style="color:var(--winner)">92 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:92%;background:var(--winner)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>EP Maqcen</span><span style="color:var(--accent)">80 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:80%;background:var(--accent)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>Liftcom / Plasnox</span><span style="color:var(--accent4)">72 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:72%;background:var(--accent4)"></div></div>
+        </div>
+        <div class="score-row">
+          <div class="score-label"><span>Plasnox Direto</span><span style="color:var(--accent4)">68 pts</span></div>
+          <div class="score-bar"><div class="score-fill" style="width:68%;background:var(--accent4)"></div></div>
+        </div>
+      </div>
+      <div class="verdict-body" style="margin-top:14px">
+        <strong>Michelson</strong> entrega mais: elevação 4.800mm, Red Zone, Blue Spot, Travel OPS, cinto vermelho, giroflex. Mas o preço premium (R$34.990 a mais) precisa ser justificado pela operação.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ALERTAS -->
+  <div class="section-title">Pontos de Atenção</div>
+
+  <div class="alert">
+    <strong>⚠️ Plasnox Direto — ICMS 17%:</strong> A proposta menciona alíquota de 17%, enquanto todas as outras indicam 4% interestadual. Se você for contribuinte de ICMS em SC, isso pode encarecer significativamente o valor efetivo. <strong>Consulte seu contador antes de fechar.</strong> O preço de R$ 127.300 pode ser ilusório se houver diferencial de alíquota a recolher.
+  </div>
+
+  <div class="alert">
+    <strong>⚠️ Maqcen — Frete FOB:</strong> O preço de R$ 128.000 não inclui frete. A Maqcen fica em Itajaí/SC, então o frete local pode ser baixo — mas precisa ser orçado. Dependendo do valor do frete, pode passar da Liftcom.
+  </div>
+
+  <div class="alert-info">
+    <strong>💡 Validade das propostas:</strong> Liftcom tem validade de apenas <strong>5 dias</strong> a partir de 12/05/2026. Plasnox Direto vence em <strong>3 dias</strong> da data de emissão. Michelson válida até <strong>31/05/2026</strong>. As propostas RBM não informam prazo de validade — confirmar disponibilidade antes de negociar.
+  </div>
+
+  <div class="alert">
+    <strong>⚠️ RBM — Toyota usados (histórico desconhecido):</strong> As propostas dos modelos 8FG18/2018 e 8FG25/2013 não informam horímetro (horas trabalhadas). <strong>Solicite o horímetro e histórico de manutenção antes de fechar</strong>. Uma Toyota com 8.000h+ de uso tem custo de manutenção bem diferente de uma com 3.000h, mesmo com pneus novos inclusos.
+  </div>
+
+  <div class="alert">
+    <strong>⚠️ RBM — Garantia e condições não detalhadas nos novos:</strong> As EP novas (elétrica e diesel) da RBM têm forma de pagamento "a combinar" e não especificam garantia, prazo de entrega ou inclusão de frete. <strong>Solicite esses detalhes por escrito antes de comparar com as propostas que já informam garantia e condições de entrega.</strong>
+  </div>
+
+  <!-- RECOMENDAÇÃO FINAL -->
+  <div class="section-title">Recomendação Final</div>
+
+  <div style="background:linear-gradient(135deg, #1a2820 0%, #181b24 100%); border:1px solid var(--winner); border-radius:16px; padding:28px; margin-bottom:16px;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+      <div style="font-size:32px;">🏆</div>
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--winner)">Liftcom / Plasnox CPQD25-Rc1K2</div>
+        <div style="font-size:13px;color:var(--muted)">Melhor opção tanto à vista quanto a prazo</div>
+      </div>
+    </div>
+    <div style="font-size:14px;color:var(--muted);line-height:1.8;">
+      <strong style="color:var(--text)">À vista (R$ 120.000):</strong> Economia de R$ 7.300 vs Plasnox Direto, R$ 8.000 vs Maqcen e R$ 34.990 vs Michelson — com frete já incluído e entrega imediata do estoque em SC.<br><br>
+      <strong style="color:var(--text)">A prazo (5x boleto, R$ 127.300 total):</strong> Parcelamento direto sem banco, sem análise de crédito e sem juros embutidos de financiamento. Entrada de 50% + 5x R$ 12.730 no boleto, ou 10x no cartão de R$ 6.365.<br><br>
+      <strong style="color:var(--text)">O único ponto fraco:</strong> garantia de apenas 6 meses/1.000h. Se uso intensivo for crítico, vale considerar negociar garantia estendida ou comparar custo de manutenção com o prêmio pago na Michelson (R$ 34.990 a mais).
+    </div>
+  </div>
+
+  <div style="background:linear-gradient(135deg, #191e2e 0%, #181b24 100%); border:1px solid var(--accent4); border-radius:16px; padding:24px; margin-bottom:16px;">
+    <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--accent4);margin-bottom:12px;">🥈 Segunda opção — EP Maqcen (R$ 128.000)</div>
+    <div style="font-size:13px;color:var(--muted);line-height:1.8;">
+      Caso a Liftcom não esteja mais disponível (estoque esgotado ou proposta vencida), a Maqcen em Itajaí é boa alternativa: estoque imediato, ICMS 4%, elevação de 4.800mm e garantia de 1 ano no motor. Apenas calcule o frete antes de fechar — se for abaixo de R$ 8.000, ainda empata ou bate a Liftcom com frete incluso.
+    </div>
+  </div>
+
+  <div style="background:linear-gradient(135deg, #1e1a2a 0%, #181b24 100%); border:1px solid rgba(240,180,41,0.4); border-radius:16px; padding:24px; margin-bottom:16px;">
+    <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--accent);margin-bottom:12px;">🔧 Se busca usado com Toyota — RBM 8FG25/2013 (R$ 75.000)</div>
+    <div style="font-size:13px;color:var(--muted);line-height:1.8;">
+      Para quem tem orçamento mais restrito ou quer uma segunda empilhadeira de apoio, o Toyota 8FG25 de 2013 da RBM é o menor preço de toda a análise: <strong style="color:var(--text)">R$ 75.000</strong> com 2.500 kg de capacidade, pneus novos e transmissão automática. <strong style="color:var(--text)">Pré-condição: solicitar horímetro e histórico de revisões antes de fechar.</strong> A diferença de R$ 45.000 para um novo pode pagar muita manutenção, mas uma máquina desgastada pode se tornar um centro de custo. Avaliar in loco.
+    </div>
+  </div>
+
+  <div style="background:linear-gradient(135deg, #191e2e 0%, #181b24 100%); border:1px solid rgba(123,156,255,0.4); border-radius:16px; padding:24px;">
+    <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--accent4);margin-bottom:12px;">⚡ Para ambiente fechado/porto coberto — RBM Elétrica Lítio (R$ 158.000)</div>
+    <div style="font-size:13px;color:var(--muted);line-height:1.8;">
+      Se a operação ocorre predominantemente em armazéns fechados ou áreas cobertas, a EP elétrica com bateria de lítio da RBM é a escolha técnica correta: zero emissão, silenciosa, carregador interno 80V/35Ah e equipamento novo. O custo de R$ 158.000 é o mais alto da análise, mas o custo operacional elétrico vs GLP/diesel pode compensar em 2–3 anos de uso intensivo. <strong style="color:var(--text)">Solicitar garantia e prazo de entrega por escrito antes de fechar.</strong>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Análise atualizada em Jun/2026 · 8 propostas comparadas · GLP novo, Diesel novo, Elétrica lítio e Usados Toyota · Torre Tríplex 4,7–4,8m
+</div>
+
+</body>
+</html>
