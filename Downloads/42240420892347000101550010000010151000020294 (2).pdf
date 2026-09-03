@@ -1,1127 +1,0 @@
-%PDF-1.4
-%”ÙÃ·
-% PDFsharp Version 1.31.1789.0 (verbose mode)
-% Creation date: 08/04/2024 15:11:22             
-% Creation time: 0.037 seconds                   
-% File size: 26669 bytes                         
-% Pages: 1                                       
-% Objects: 21                                    
-%--------------------------------------------------------------------------------------------------
-1 0 obj   % PdfSharp.Pdf.PdfDocumentInformation
-<<
-  /CreationDate (D:20240408151122-03'00')
-  /Creator (PDFsharp 1.31.1789-g \(www.pdfsharp.com\))
-  /Producer (PDFsharp 1.31.1789-g \(www.pdfsharp.com\))
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-2 0 obj   % PdfSharp.Pdf.Advanced.PdfCatalog
-<<
-  /Pages 3 0 R
-  /Type /Catalog
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-3 0 obj   % PdfSharp.Pdf.PdfPages
-<<
-  /Count 1
-  /Kids [4 0 R]
-  /Type /Pages
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-4 0 obj   % PdfSharp.Pdf.PdfPage
-<<
-  /Contents 5 0 R
-  /Group
-  <<
-    /CS /DeviceRGB
-    /I false
-    /K false
-    /S /Transparency
-  >>
-  /MediaBox [0 0 595 842]
-  /Parent 3 0 R
-  /Resources
-  <<
-    /ExtGState
-    <<
-      /GS0 19 0 R
-    >>
-    /Font
-    <<
-      /F0 21 0 R
-    >>
-    /ProcSet [/PDF/Text/ImageB/ImageC/ImageI]
-    /XObject
-    <<
-      /Fm0 18 0 R
-    >>
-  >>
-  /Type /Page
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-5 0 obj   % PdfSharp.Pdf.Advanced.PdfContent
-<<
-  /Length 122
->>
-stream
-q
-1 0 0 -1 0 842 cm -100 Tz
-q
-q 1 0 0 -1 2 844 cm 100 Tz /Fm0 Do Q
-BT
-/GS0 gs
-/F0 -10 Tf
-285 113 Td (FOLHA 1/1) Tj
-ET
-Q
-Q
-endstream
-endobj
-%--------------------------------------------------------------------------------------------------
-6 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /CA 1
-  /Type /ExtGState
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-7 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /ca 1
-  /Type /ExtGState
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-8 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /BaseFont /TimesNewRoman,Bold
-  /Encoding /WinAnsiEncoding
-  /FirstChar 0
-  /FontDescriptor 9 0 R
-  /LastChar 255
-  /Subtype /TrueType
-  /Type /Font
-  /Widths [777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 250 333 555 500 500 1000 833 277 333 333 500 569 250 333 250 277 500 500 500 500 500 500 500 500 500 500 333 333 569 569 569 500 930 722 666 722 722 666 610 777 777 389 500 777 666 943 722 777 610 777 722 556 666 722 722 1000 722 722 666 333 277 333 581 500 333 500 556 443 556 443 333 500 556 277 333 556 277 833 556 500 556 556 443 389 333 556 500 722 500 500 443 394 220 394 520 777 500 777 333 500 500 1000 500 500 333 1000 556 333 1000 777 666 777 777 333 333 500 500 350 500 1000 333 1000 389 333 722 777 443 722 250 333 500 500 500 500 220 500 333 747 299 500 569 333 747 500 399 548 299 299 333 576 540 333 333 299 330 500 750 750 750 500 722 722 722 722 722 722 1000 722 666 666 666 666 389 389 389 389 722 722 777 777 777 777 777 569 777 722 722 722 722 722 610 556 500 500 500 500 500 500 722 443 443 443 443 443 277 277 277 277 500 556 500 500 500 500 500 548 500 556 556 556 556 500 556 500]
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-9 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /Ascent 891
-  /CapHeight 662
-  /Descent -216
-  /Flags 32
-  /FontBBox [-558 -328 2000 1056]
-  /FontName /TimesNewRoman,Bold
-  /ItalicAngle 0
-  /StemV 0
-  /Type /FontDescriptor
-  /XHeight 457
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-10 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /BaseFont /TimesNewRoman
-  /Encoding /WinAnsiEncoding
-  /FirstChar 0
-  /FontDescriptor 11 0 R
-  /LastChar 255
-  /Subtype /TrueType
-  /Type /Font
-  /Widths [777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 250 333 408 500 500 833 777 180 333 333 500 563 250 333 250 277 500 500 500 500 500 500 500 500 500 500 277 277 563 563 563 443 920 722 666 666 722 610 556 722 722 333 389 722 610 889 722 722 556 722 666 556 610 722 722 943 722 722 610 333 277 333 469 500 333 443 500 443 500 443 333 500 500 277 277 500 277 777 500 500 500 500 333 389 277 500 500 722 500 500 443 479 200 479 541 777 500 777 333 500 443 1000 500 500 333 1000 556 333 889 777 610 777 777 333 333 443 443 350 500 1000 333 979 389 333 722 777 443 722 250 333 500 500 500 500 200 500 333 759 275 500 563 333 759 500 399 548 299 299 333 576 453 333 333 299 310 500 750 750 750 443 722 722 722 722 722 722 889 666 610 610 610 610 333 333 333 333 722 722 722 722 722 722 722 563 722 722 722 722 722 722 556 500 443 443 443 443 443 443 666 443 443 443 443 443 277 277 277 277 500 500 500 500 500 500 500 548 500 500 500 500 500 500 500 500]
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-11 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /Ascent 891
-  /CapHeight 662
-  /Descent -216
-  /Flags 32
-  /FontBBox [-568 -307 2046 1040]
-  /FontName /TimesNewRoman
-  /ItalicAngle 0
-  /StemV 0
-  /Type /FontDescriptor
-  /XHeight 447
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-12 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /BaseFont /Arial
-  /Encoding /WinAnsiEncoding
-  /FirstChar 0
-  /FontDescriptor 13 0 R
-  /LastChar 255
-  /Subtype /TrueType
-  /Type /Font
-  /Widths [750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 750 277 277 354 556 556 889 666 190 333 333 389 583 277 333 277 277 556 556 556 556 556 556 556 556 556 556 277 277 583 583 583 556 1015 666 666 722 722 666 610 777 722 277 500 666 556 833 722 777 666 777 722 666 610 722 666 943 666 666 610 277 277 277 469 556 333 556 556 500 556 556 277 556 556 222 222 500 222 833 556 556 556 556 333 500 277 556 500 722 500 500 500 333 259 333 583 750 556 750 222 556 333 1000 556 556 333 1000 666 333 1000 750 610 750 750 222 222 333 333 350 556 1000 333 1000 500 333 943 750 500 666 277 333 556 556 556 556 259 556 333 736 370 556 583 333 736 552 399 548 333 333 333 576 537 333 333 333 365 556 833 833 833 610 666 666 666 666 666 666 1000 722 666 666 666 666 277 277 277 277 722 722 777 777 777 777 777 583 777 722 722 722 722 666 666 610 556 556 556 556 556 556 889 500 556 556 556 556 277 277 277 277 556 556 556 556 556 556 556 548 610 556 556 556 556 500 556 500]
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-13 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /Ascent 905
-  /CapHeight 716
-  /Descent -212
-  /Flags 32
-  /FontBBox [-665 -325 2000 1040]
-  /FontName /Arial
-  /ItalicAngle 0
-  /StemV 0
-  /Type /FontDescriptor
-  /XHeight 519
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-14 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /BaseFont /CourierNew,Bold
-  /Encoding /WinAnsiEncoding
-  /FirstChar 0
-  /FontDescriptor 15 0 R
-  /LastChar 255
-  /Subtype /TrueType
-  /Type /Font
-  /Widths [600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600]
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-15 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /Ascent 833
-  /CapHeight 592
-  /Descent -300
-  /Flags 32
-  /FontBBox [-192 -710 702 1221]
-  /FontName /CourierNew,Bold
-  /ItalicAngle 0
-  /StemV 0
-  /Type /FontDescriptor
-  /XHeight 443
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-16 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /BitsPerComponent 8
-  /ColorSpace /DeviceRGB
-  /Filter /FlateDecode
-  /Height 80
-  /Interpolate true
-  /Length 3833
-  /Subtype /Image
-  /Type /XObject
-  /Width 306
->>
-stream
-xúÌëAn 1˝ˇO≥“ÊÇ(∞ëÜ”CCÅÌã/æ¯‚ã/æ¯‚ã/æ¯‚ã/æ¯‚ã/æ¯‚ã/æ¯‚ã/æ¯‚ã/æ¯‚ã/æ¯Éq˛«O‚ˇ ¸ﬂ†Ñ&æÉOXêá°)©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñã¡Exp√Aj`OCW]ÃW ©î®ÄU“…äg¿‡;Ï¡˙#¬.Ô 7gsè/≤I™§ﬁ`π\Ñ7§6Ò4t’≈|bêJâ
-X%ù|P†xæ√¨?"ÏÚrsˆ0˜∏"õ§JÍñ_≈?Œü~ü
-endstream
-endobj
-%--------------------------------------------------------------------------------------------------
-17 0 obj   % PdfSharp.Pdf.PdfDictionary
-<<
-  /ExtGState
-  <<
-    /GS0 6 0 R
-    /GS1 7 0 R
-  >>
-  /Font
-  <<
-    /F0 8 0 R
-    /F1 10 0 R
-    /F2 12 0 R
-    /F3 14 0 R
-  >>
-  /ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
-  /XObject
-  <<
-    /I0 16 0 R
-  >>
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-18 0 obj   % PdfSharp.Pdf.Advanced.PdfFormXObject
-<<
-  /BBox [0 0 595 842]
-  /Length 10356
-  /Resources 17 0 R
-  /Subtype /Form
-  /Type /XObject
->>
-stream
-
-q
-1 0 0 -1 0 842 cm -100 Tz
-q
-0.3 w
-0 J
-0 j
-10 M
-[]0 d
-/GS0 gs
-2 2 588 165 re
-S
-BT
-/GS1 gs
-/F0 -6 Tf
-76 15 Td (IDENTIFICA«√O DO EMITENTE) Tj
-/F0 -8 Tf
--50.6797 12.1289 Td (MECANICA) Tj
-46.8867 0 Td (E) Tj
-7.3359 0 Td (CHASSI) Tj
-31.7891 0 Td (DE) Tj
-13.1133 0 Td (CAMINHOES) Tj
-52.2266 0 Td (VARGAS) Tj
-35.7813 0 Td (LTDA) Tj
-/F1 -7 Tf
--135.4531 18.1089 Td (RUA:) Tj
-18.4741 0 Td (ERNA) Tj
-20.8052 0 Td (HOIER) Tj
-23.1362 0 Td (CORREA,730) Tj
--62.4155 8.0493 Td (CARVALHO) Tj
-0 8.0493 Td (ITAJAI-SC) Tj
-0 8.0493 Td (FONE:) Tj
-21.9741 0 Td (4733467264) Tj
-36.75 0 Td (CEP:) Tj
-16.5327 0 Td (88307-720) Tj
-/F2 -6 Tf
-5.6064 40.0459 Td (oficina@recuperadoravargas.com.br) Tj
-ET
-3 114 m
-589 114 l
-S
-257 114 m
-257 2 l
-S
-361.8 140 m
-361.8 2 l
-S
-BT
-/F0 -12 Tf
-287 15 Td (DANFE) Tj
-/F1 -8 Tf
--23 10 Td (DOCUMENTO AUXILIAR) Tj
-14 10 Td (DA NOTA FISCAL) Tj
-7 10 Td (ELETR‘NICA) Tj
-ET
-330 55 15 20 re
-S
-BT
-/F1 -7 Tf
-273 60 Td (0 - ENTRADA) Tj
-0 10 Td (1 - SAÕDA) Tj
-/F1 -10 Tf
-62 -3 Td (1) Tj
-/F0 -10 Tf
--60 18 Td (N.∫) Tj
-/F1 -10 Tf
-15 0 Td (000.001.015) Tj
-/F0 -10 Tf
--10 13 Td (S…RIE) Tj
-/F1 -10 Tf
-35 0 Td (1) Tj
-ET
-q 226 0 0 -36 363 41 cm /I0 Do Q
-362 48 m
-590 48 l
-S
-BT
-/F1 -6 Tf
-363 56 Td (CHAVE DE ACESSO) Tj
-/F0 -8 Tf
-7 12 Td (4224 0420 8923 4700 0101 5500 1000 0010 1510 0002 0294 ) Tj
-ET
-362 75 m
-590 75 l
-S
-BT
-/F1 -7 Tf
-365 83 Td (FINALIDADE EMISS√O: 1-NF-E NORMAL) Tj
-ET
-362 88 m
-590 88 l
-S
-BT
-/F1 -8 Tf
-395 97 Td (Consulta de autenticidade no portal nacional da NF-e) Tj
--23 13 Td (www.nfe.fazenda.gov.br/portal ou no site da Sefaz Autorizadora) Tj
-ET
-2 140 m
-590 140 l
-S
-BT
-/F1 -6 Tf
-5 120 Td (NATUREZA DA OPERA«√O) Tj
-/F1 -10 Tf
-0 14 Td (VENDA DE MERCADORIA) Tj
-/F1 -6 Tf
-358 -14 Td (PROTOCOLO DE AUTORIZA«√O DE USO) Tj
-/F1 -10 Tf
-7 14 Td (342240091587847 08/04/2024 15:11:12-03:00) Tj
-/F1 -6 Tf
--365 13 Td (INSCRI«√O ESTADUAL) Tj
-/F1 -10 Tf
-10 13 Td (257441417) Tj
-ET
-195.97 167 m
-195.97 140 l
-S
-BT
-/F1 -6 Tf
-200 147 Td (INSCR. ESTADUAL DO SUBST. TRIBUT.) Tj
-ET
-391.95 167 m
-391.95 140 l
-S
-BT
-396 147 Td (CNPJ) Tj
-/F1 -10 Tf
-4 13 Td (20.892.347/0001-01) Tj
-/F3 -5 Tf
--395 12 Td (DESTINAT¡RIO/REMETENTE) Tj
-ET
-2 174 588 65 re
-S
-BT
-/F1 -6 Tf
-5 181 Td (NOME/RAZ√O SOCIAL) Tj
-/F1 -9 Tf
-0 10 Td (PORTOEXPRESS LOGISTICA LTDA) Tj
-ET
-391.95 195 m
-391.95 174 l
-S
-BT
-/F1 -6 Tf
-395 181 Td (CNPJ/CPF) Tj
-/F1 -9 Tf
-0 10 Td (22.725.000/0001-91) Tj
-ET
-511 239 m
-511 174 l
-S
-BT
-/F1 -6 Tf
-514 181 Td (DATA DA EMISS√O) Tj
-/F1 -10 Tf
-4 10 Td (08/04/2024) Tj
-ET
-2 195 m
-590 195 l
-S
-BT
-/F1 -6 Tf
-5 201 Td (ENDERE«O) Tj
-/F1 -9 Tf
-0 12 Td (AVENIDA GOV. ADOLFO KONDER 2820) Tj
-ET
-301.95 195 m
-301.95 239 l
-S
-BT
-/F1 -6 Tf
-304 201 Td (BAIRRO/DISTRITO) Tj
-/F1 -9 Tf
-0 12 Td (SAO VICENTE) Tj
-ET
-453 195 m
-453 216 l
-S
-BT
-/F1 -6 Tf
-455 202 Td (CEP) Tj
-/F1 -9 Tf
-0 11 Td (88308-000) Tj
-/F1 -6 Tf
-59 -11 Td (DATA SAÕDA) Tj
-/F1 -10 Tf
-4 11 Td (08/04/2024) Tj
-ET
-2 216 m
-590 216 l
-S
-BT
-/F1 -6 Tf
-5 223 Td (MUNICIPIO) Tj
-/F1 -9 Tf
-0 13 Td (ITAJAI) Tj
-ET
-277 217 m
-277 239 l
-S
-BT
-/F1 -6 Tf
-279 223 Td (UF) Tj
-/F1 -9 Tf
-2 13 Td (SC) Tj
-/F1 -6 Tf
-23 -13 Td (FONE/FAX) Tj
-/F1 -9 Tf
-2 13 Td (47999690517) Tj
-/F1 -6 Tf
-89 -13 Td (INSCRI«√O ESTADUAL) Tj
-/F1 -9 Tf
-2 13 Td (257684689) Tj
-ET
-391.95 239 m
-391.95 216 l
-S
-BT
-/F1 -6 Tf
-514 223 Td (HORA SAÕDA) Tj
-/F1 -10 Tf
-2 13 Td (15:11:00) Tj
-/F3 -5 Tf
--511 8 Td (FATURA) Tj
-ET
-2 246 588 35 re
-S
-BT
-/F1 -6 Tf
-5 253 Td (No.DE ORDEM) Tj
-ET
-66.93 246 m
-66.93 255 l
-S
-BT
-70 253 Td (VENCIMENTO) Tj
-ET
-135.67 246 m
-135.67 255 l
-S
-BT
-139 253 Td (VALOR) Tj
-ET
-195.97 246 m
-195.97 255 l
-S
-BT
-200 253 Td (No.DE ORDEM) Tj
-ET
-265.32 246 m
-265.32 255 l
-S
-BT
-274 253 Td (VENCIMENTO) Tj
-ET
-331.65 246 m
-331.65 255 l
-S
-BT
-334 253 Td (VALOR) Tj
-ET
-391.95 246 m
-391.95 255 l
-S
-BT
-394 253 Td (No.DE ORDEM) Tj
-ET
-452.25 246 m
-452.25 255 l
-S
-BT
-456 253 Td (VENCIMENTO) Tj
-ET
-527.62 246 m
-527.62 255 l
-S
-BT
-531 253 Td (VALOR) Tj
-ET
-2 255 m
-590 255 l
-S
-BT
-/F3 -5 Tf
-5 287 Td (C¡LCULO DO IMPOSTO) Tj
-ET
-2 290 588 44 re
-S
-BT
-/F1 -6 Tf
-5 296 Td (BASE DE C¡LCULO DO ICMS) Tj
-/F1 -10 Tf
-52.5 11.9111 Td (0,00) Tj
-ET
-91.35 290 m
-91.35 311 l
-S
-BT
-/F1 -6 Tf
-120 296 Td (VALOR DO ICMS) Tj
-/F1 -10 Tf
-29.5 11.9111 Td (0,00) Tj
-ET
-170.97 290 m
-170.97 311 l
-S
-BT
-/F1 -6 Tf
-174 296 Td (BASE C¡LCULO ICMS ST) Tj
-/F1 -10 Tf
-48.5 11.9111 Td (0,00) Tj
-ET
-250 290 m
-250 311 l
-S
-BT
-/F1 -6 Tf
-265 296 Td (VALOR ICMS SUBSTITUI«√O) Tj
-/F1 -10 Tf
-64.5 11.9111 Td (0,00) Tj
-ET
-355 290 m
-355 311 l
-S
-BT
-/F1 -6 Tf
-363 296 Td (VALOR DO IPI DEVOL) Tj
-/F1 -10 Tf
-39.5 11.9111 Td (0,00) Tj
-ET
-461.29 290 m
-461.29 311 l
-S
-BT
-/F1 -6 Tf
-467 296 Td (VALOR TOTAL DOS PRODUTOS) Tj
-/F0 -10 Tf
-67 11.9111 Td (1.100,00) Tj
-ET
-2 311 m
-590 311 l
-S
-BT
-/F1 -6 Tf
-5 318 Td (VALOR DO FRETE) Tj
-/F1 -10 Tf
-52.5 10.9111 Td (0,00) Tj
-ET
-91.35 312 m
-91.35 334 l
-S
-BT
-/F1 -6 Tf
-95 318 Td (VALOR SEGURO) Tj
-/F1 -10 Tf
-54.5 10.9111 Td (0,00) Tj
-ET
-170.97 312 m
-170.97 334 l
-S
-BT
-/F1 -6 Tf
-174 318 Td (DESCONTO) Tj
-/F1 -10 Tf
-48.5 10.9111 Td (0,00) Tj
-ET
-250 312 m
-250 334 l
-S
-BT
-/F1 -6 Tf
-255 318 Td (OUTRAS DESPESAS ACESS”RIAS) Tj
-/F1 -10 Tf
-72.5 10.9111 Td (0,00) Tj
-ET
-355 312 m
-355 334 l
-S
-BT
-/F1 -6 Tf
-363 318 Td (VALOR DO IPI) Tj
-/F1 -10 Tf
-39.5 10.9111 Td (0,00) Tj
-ET
-461.29 312 m
-461.29 334 l
-S
-0.827 0.827 0.827 rg
-462 312 128 21 re
-f
-BT
-0 0 0 rg
-/F0 -6 Tf
-486 318 Td (VALOR TOTAL DA NOTA) Tj
-/F0 -12 Tf
-42 12.6934 Td (1.100,00) Tj
-/F3 -5 Tf
--523 8.3066 Td (TRANSPORTADOR/VOLUMES TRANSPORTADOS) Tj
-ET
-2 341 588 65 re
-S
-BT
-/F1 -6 Tf
-5 348 Td (NOME/RAZ√O SOCIAL) Tj
-ET
-256.02 341 m
-256.02 362 l
-S
-BT
-259 348 Td (FRETE POR CONTA) Tj
-/F1 -7 Tf
-1 10 Td (9-SEM FRETE) Tj
-ET
-331.65 341 m
-331.65 362 l
-S
-BT
-/F1 -6 Tf
-333 348 Td (C”DIGO ANTT) Tj
-ET
-392.55 341 m
-392.55 362 l
-S
-BT
-394 348 Td (PLACA DO VEÕCULO) Tj
-ET
-452.85 341 m
-452.85 362 l
-S
-BT
-455 348 Td (UF) Tj
-ET
-482 341 m
-482 362 l
-S
-BT
-485 348 Td (CNPJ/CPF) Tj
-ET
-2 362 m
-590 362 l
-S
-BT
-5 368 Td (ENDERE«O) Tj
-ET
-256.02 362 m
-256.02 383 l
-S
-BT
-259 368 Td (MUNICÕPIO) Tj
-ET
-452.85 362 m
-452.85 383 l
-S
-BT
-454 368 Td (UF) Tj
-ET
-482 362 m
-482 383 l
-S
-BT
-485 368 Td (INSCRI«√O ESTADUAL) Tj
-ET
-2 383 m
-590 383 l
-S
-BT
-5 389 Td (QUANTIDADE) Tj
-ET
-72.36 383 m
-72.36 405 l
-S
-BT
-75 389 Td (ESP…CIE) Tj
-ET
-180.9 383 m
-180.9 405 l
-S
-BT
-183 389 Td (MARCA) Tj
-ET
-301.5 383 m
-301.5 405 l
-S
-BT
-304 389 Td (N⁄MERA«√O) Tj
-ET
-437.17 383 m
-437.17 405 l
-S
-BT
-440 389 Td (PESO BRUTO) Tj
-ET
-512.55 383 m
-512.55 405 l
-S
-BT
-515 389 Td (PESO LÕQUIDO) Tj
-/F3 -5 Tf
--510 23 Td (DADOS DOS PRODUTOS/SERVI«OS) Tj
-ET
-2 415 588 249 re
-S
-BT
-/F1 -5 Tf
-15 425 Td (C”DIGO PRODUTO) Tj
-ET
-70.02 415 m
-70.02 663 l
-S
-BT
-73 425 Td (DESCRI«√O DOS PRODUTOS/SERVI«OS) Tj
-ET
-250 415 m
-250 663 l
-S
-BT
-256 425 Td (NCM/SH) Tj
-ET
-282 415 m
-282 663 l
-S
-BT
-283 425 Td (CSOSN) Tj
-ET
-300 415 m
-300 663 l
-S
-BT
-306 425 Td (CFOP) Tj
-ET
-324 415 m
-324 663 l
-S
-BT
-327 425 Td (UNID) Tj
-ET
-341.8 415 m
-341.8 663 l
-S
-BT
-355 425 Td (QUANT.) Tj
-ET
-385 415 m
-385 663 l
-S
-BT
-398 421 Td (VALOR) Tj
--2 6 Td (UNIT¡RIO) Tj
-ET
-426 415 m
-426 663 l
-S
-BT
-428 425 Td (VALOR TOTAL) Tj
-ET
-465 415 m
-465 663 l
-S
-BT
-471 421 Td (B.CALC) Tj
-3 6 Td (ICMS) Tj
-ET
-497 415 m
-497 663 l
-S
-BT
-504 421 Td (VALOR) Tj
-3 6 Td (ICMS) Tj
-ET
-527 415 m
-527 663 l
-S
-BT
-532 421 Td (VALOR) Tj
-6 6 Td (IPI) Tj
-ET
-553 415 m
-553 663 l
-S
-BT
-557 421 Td (ALÕQ) Tj
-0 6 Td (ICMS) Tj
-ET
-572 415 m
-572 663 l
-S
-BT
-575 421 Td (ALÕQ) Tj
-3 6 Td (IPI) Tj
-ET
-3 430 m
-589 430 l
-S
-BT
-/F3 -5 Tf
-5 672 Td (C¡LCULO DO ISSQN) Tj
-ET
-2 674 588 20 re
-S
-BT
-/F1 -6 Tf
-5 681 Td (INSCRI«√O MUNICIPAL) Tj
-ET
-154.56 674 m
-154.56 693 l
-S
-BT
-160 681 Td (VALOR TOTAL DOS SERVI«OS) Tj
-ET
-285 674 m
-285 693 l
-S
-BT
-291 681 Td (BASE DE C¡LCULO DO ISSQN) Tj
-ET
-430 674 m
-430 693 l
-S
-BT
-433 681 Td (VALOR TOTAL DO ISSQN) Tj
-/F3 -5 Tf
--428 19 Td (DADOS ADICIONAIS) Tj
-ET
-2 703 588 80 re
-S
-BT
-/F1 -7 Tf
-4 718.2378 Td (PERMITE) Tj
-32.2528 0 Td (O) Tj
-7.3632 0 Td (APROVEITAMENTO) Tj
-66.8598 0 Td (DO) Tj
-12.4184 0 Td (ICMS) Tj
-19.4252 0 Td (DE) Tj
-11.6391 0 Td (R$) Tj
-10.4769 0 Td (37,18) Tj
-18.058 0 Td (\(ALIQ.DE) Tj
-32.4374 0 Td (3,38%\),) Tj
-24.4701 0 Td (NOS) Tj
-16.3114 0 Td (TERMOS) Tj
-30.7011 0 Td (DO) Tj
-12.4184 0 Td (ART.23) Tj
-25.058 0 Td (DA) Tj
--319.8896 8.0493 Td (LC) Tj
-12.0302 0 Td (123.) Tj
-15.3353 0 Td (VOLVO) Tj
-27.5819 0 Td (VM) Tj
-14.3646 0 Td (-) Tj
-5.4164 0 Td (PLACA:) Tj
-27.9784 0 Td (MIY6C60) Tj
-31.8646 0 Td (-.) Tj
-7.1664 0 Td (DOCTOS.) Tj
-32.8388 0 Td (ENVOLVIDOS:) Tj
-50.1371 0 Td (PV) Tj
-12.0336 0 Td (N.) Tj
-9.8905 0 Td (0000000259.) Tj
-39.8353 0 Td (VENDEDOR) Tj
-41.5819 0 Td (:) Tj
--328.0552 8.0493 Td (JARDEL) Tj
-27.8052 0 Td (VARGAS) Tj
-34.0327 0 Td (\(001\).) Tj
-/F1 -6 Tf
--60.8379 -25.3364 Td (INFORMA«’ES COMPLEMENTARES) Tj
-ET
-346.72 703 m
-346.72 783 l
-S
-BT
-349 709 Td (RESERVADO AO FISCO) Tj
-/F1 -7 Tf
--277 -271.7622 Td (ESTRIBO) Tj
-30.9189 0 Td (LD) Tj
-/F1 -6.5 Tf
--98.9189 -0.4456 Td (636) Tj
-/F1 -7 Tf
-248 0.4456 Td (87082999) Tj
-33 0 Td (0101) Tj
-22 0 Td (5102) Tj
-20 0 Td (UN) Tj
-35.75 0 Td (1,0000) Tj
-38.5 0 Td (1100,00) Tj
-38 0 Td (1100,00) Tj
-42.5 0 Td (0.00) Tj
-31 0 Td (0.00) Tj
-26 0 Td (0,00) Tj
-19 0 Td (0,00) Tj
-18 0 Td (0,00) Tj
-ET
-2 793 589 45 re
-S
-4 789 m
-580 789 l
-S
-BT
-/F1 -5 Tf
-5 787 Td (JR PDV SISTEMAS) Tj
-/F1 -6 Tf
--1 12.3467 Td (RECEBEMOS) Tj
-37.6539 0 Td (DE) Tj
-9.6461 0 Td (MECANICA) Tj
-33.6491 0 Td (E) Tj
-5.3131 0 Td (CHASSI) Tj
-22.9879 0 Td (DE) Tj
-9.6461 0 Td (CAMINHOES) Tj
-37.317 0 Td (VARGAS) Tj
-26.319 0 Td (LTDA) Tj
-17.6442 0 Td (OS) Tj
-9.318 0 Td (PRODUTOS) Tj
-33.3209 0 Td (E/OU) Tj
-15.6461 0 Td (SERVI«OS) Tj
-30.6549 0 Td (CONSTANTES) Tj
-40.651 0 Td (DA) Tj
-10.3141 0 Td (NOTA) Tj
-18.3121 0 Td (FISCAL) Tj
-22.32 0 Td (ELETR‘NICA) Tj
-39.3092 0 Td (INDICADA) Tj
-31.3112 0 Td (AO) Tj
--451.334 6.8994 Td (LADO) Tj
-20.9868 0 Td (EMISS√O:) Tj
-32.3276 0 Td (08/04/2024) Tj
-31.6567 0 Td (O) Tj
-8.6557 0 Td (VALOR) Tj
-24.9887 0 Td (TOTAL:) Tj
-25.6508 0 Td (1100,00) Tj
-23.8227 0 Td (DESTINAT¡RIO:) Tj
-49.9848 0 Td (PORTOEXPRESS) Tj
-49.6684 0 Td (LOGISTICA) Tj
-35.9868 0 Td (LTDA-) Tj
-22.3169 0 Td (AVENIDA) Tj
-31.6508 0 Td (GOV.) Tj
-18.8217 0 Td (ADOLFO) Tj
-28.6567 0 Td (KONDER) Tj
-29.3217 0 Td (2820,SAO) Tj
--434.4971 6.8994 Td (VICENTE-ITAJAI-SC) Tj
-ET
-3 816 m
-470 816 l
-S
-BT
-4 823 Td (DATA DE RECEBIMENTO) Tj
-ET
-100.52 816 m
-100.52 838 l
-S
-BT
-107 823 Td (IDENTIFICA«√O E ASSINATURA DO RECEBEDOR) Tj
-ET
-471 793 m
-471 838 l
-S
-BT
-/F0 -8 Tf
-530 802 Td (NF-e) Tj
-/F0 -9 Tf
--20 14 Td (N∫) Tj
-/F0 -8 Tf
-12 0 Td (000.001.015) Tj
--37 13 Td (S…RIE) Tj
-25 0 Td (1) Tj
-/F1 -7 Tf
-20 0 Td (MECANICA E CHASSI DE CAMINHOES VARGAS) Tj
-ET
-Q
-Q
-endstream
-endobj
-%--------------------------------------------------------------------------------------------------
-19 0 obj   % PdfSharp.Pdf.Advanced.PdfExtGState
-<<
-  /ca 1
-  /Type /ExtGState
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-20 0 obj   % PdfSharp.Pdf.Advanced.PdfFontDescriptor
-<<
-  /Ascent 891
-  /CapHeight 662
-  /Descent -216
-  /Flags 32
-  /FontBBox [-558 -328 2000 1056]
-  /FontName /TimesNewRoman,Bold
-  /ItalicAngle 0
-  /StemV 0
-  /Type /FontDescriptor
-  /XHeight 457
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-21 0 obj   % PdfSharp.Pdf.Advanced.PdfTrueTypeFont
-<<
-  /BaseFont /TimesNewRoman,Bold
-  /Encoding /WinAnsiEncoding
-  /FirstChar 0
-  /FontDescriptor 20 0 R
-  /LastChar 255
-  /Subtype /TrueType
-  /Type /Font
-  /Widths [777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 777 250 333 555 500 500 1000 833 277 333 333 500 569 250 333 250 277 500 500 500 500 500 500 500 500 500 500 333 333 569 569 569 500 930 722 666 722 722 666 610 777 777 389 500 777 666 943 722 777 610 777 722 556 666 722 722 1000 722 722 666 333 277 333 581 500 333 500 556 443 556 443 333 500 556 277 333 556 277 833 556 500 556 556 443 389 333 556 500 722 500 500 443 394 220 394 520 777 500 777 333 500 500 1000 500 500 333 1000 556 333 1000 777 666 777 777 333 333 500 500 350 500 1000 333 1000 389 333 722 777 443 722 250 333 500 500 500 500 220 500 333 747 299 500 569 333 747 500 399 548 299 299 333 576 540 333 333 299 330 500 750 750 750 500 722 722 722 722 722 722 1000 722 666 666 666 666 389 389 389 389 722 722 777 777 777 777 777 569 777 722 722 722 722 722 610 556 500 500 500 500 500 500 722 443 443 443 443 443 277 277 277 277 500 556 500 500 500 500 500 548 500 556 556 556 556 500 556 500]
->>
-endobj
-%--------------------------------------------------------------------------------------------------
-xref
-0 22
-0000000000 65535 f 
-0000000411 00000 n 
-0000000725 00000 n 
-0000000915 00000 n 
-0000001104 00000 n 
-0000001611 00000 n 
-0000001922 00000 n 
-0000002101 00000 n 
-0000002280 00000 n 
-0000003627 00000 n 
-0000003971 00000 n 
-0000005310 00000 n 
-0000005650 00000 n 
-0000006985 00000 n 
-0000007317 00000 n 
-0000008655 00000 n 
-0000008996 00000 n 
-0000013166 00000 n 
-0000013533 00000 n 
-0000024161 00000 n 
-0000024349 00000 n 
-0000024707 00000 n 
-trailer
-<<
-  /ID [<FEEDA454029CFF43A6576178D9A82D1D><FEEDA454029CFF43A6576178D9A82D1D>]
-  /Info 1 0 R
-  /Root 2 0 R
-  /Size 22
->>
-startxref
-26067
-%%EOF

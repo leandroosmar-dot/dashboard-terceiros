@@ -4,3 +4,10 @@ dist/
 .env.local
 .DS_Store
 *.log
+Downloads/
+*.rar
+*.zip
+*.mp4
+*.avi
+node_modules/
+dist/
